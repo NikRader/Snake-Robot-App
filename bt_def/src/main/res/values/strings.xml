@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">bt_def</string>
+    <string name="paired_devices">Сопряженные устройства</string>
+    <string name="bluetooth">bluetooth</string>
+    <string name="search">Поиск устройств</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+</resources>
