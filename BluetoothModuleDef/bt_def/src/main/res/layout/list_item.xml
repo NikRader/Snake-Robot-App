@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_marginStart="3dp"
+    android:layout_marginTop="3dp"
+    android:layout_marginEnd="3dp"
+    android:background="#812D2D"
+    android:visibility="visible"
+    app:cardBackgroundColor="#D58989"
+    app:cardCornerRadius="6dp"
+    tools:visibility="visible">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="433dp"
+        android:layout_height="wrap_content"
+        android:background="#57E1D4">
+
+        <TextView
+            android:id="@+id/name"
+            android:layout_width="120dp"
+            android:layout_height="24dp"
+            android:layout_marginStart="16dp"
+            android:gravity="center"
+            android:text="esp32"
+            android:textColor="#9E3514"
+            android:textSize="12sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toTopOf="@+id/mac"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.722" />
+
+        <TextView
+            android:id="@+id/mac"
+            android:layout_width="120dp"
+            android:layout_height="24dp"
+            android:gravity="center"
+            android:text="32:34:89:89"
+            android:textColor="#022B27"
+            android:textSize="12sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="@+id/name"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.893" />
+
+        <CheckBox
+            android:id="@+id/checkBox"
+            android:layout_width="100dp"
+            android:layout_height="50dp"
+            android:layout_marginStart="108dp"
+            android:textColor="@color/teal_700"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="@+id/mac"
+            app:layout_constraintStart_toEndOf="@+id/name"
+            app:layout_constraintTop_toTopOf="@+id/name"
+            app:layout_constraintVertical_bias="1.0" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.cardview.widget.CardView>
