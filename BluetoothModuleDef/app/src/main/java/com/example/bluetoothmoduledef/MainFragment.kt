@@ -24,7 +24,6 @@ class MainFragment : Fragment() {
     ): View {
         binding = FragmentMainBinding.inflate(inflater, container, false)
         return binding.root
-
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -39,11 +38,9 @@ class MainFragment : Fragment() {
         binding.bList.setOnClickListener {
             findNavController().navigate(R.id.action_mainFragment_to_deviceListFragment)
         }
-    binding.connectBt.setOnClickListener(){
-    bluetoothController.connect(mac?: "")
-
+        binding.connectBt.setOnClickListener(){
+            bluetoothController.connect(mac?: "")
         }
-
     }
 
     private fun initBtAdapter() {
