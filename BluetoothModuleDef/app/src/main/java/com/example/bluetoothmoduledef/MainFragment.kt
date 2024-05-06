@@ -42,9 +42,13 @@ class MainFragment : Fragment(), BluetoothController.Listener {
         binding.connectBt.setOnClickListener(){
             bluetoothController.connect(mac?: "", this)
         }
-        binding.sendBtn.setOnClickListener {
-            bluetoothController.sendMessage("Hello from smartphone!")
+        binding.TurnOnBtn.setOnClickListener {
+            bluetoothController.sendMessage("A")
         }
+        binding.TurnOffBtn.setOnClickListener {
+            bluetoothController.sendMessage("B")
+        }
+
     }
 
     private fun initBtAdapter() {
@@ -58,12 +62,12 @@ class MainFragment : Fragment(), BluetoothController.Listener {
                BluetoothController.BLUETOOTH_CONNECTED ->{
                     binding.connectBt.backgroundTintList = AppCompatResources
                         .getColorStateList(requireContext(), com.example.bt_def.R.color.red)
-                            binding.connectBt.text ="Disconnect"
+                            binding.connectBt.text ="Отключиться"
                }
                 BluetoothController.BLUETOOTH_NO_CONNECTED ->{
                     binding.connectBt.backgroundTintList = AppCompatResources
                         .getColorStateList(requireContext(), com.example.bt_def.R.color.green)
-                    binding.connectBt.text ="Connect"
+                    binding.connectBt.text ="Подключиться"
 
                 }
                 else ->{

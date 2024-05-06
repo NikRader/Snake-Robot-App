@@ -112,20 +112,34 @@
         android:gravity="center"
         android:text=" Здесь появится сообщение от ESP_32!"
         android:textColor="#090909"
+        android:visibility="gone"
         app:layout_constraintEnd_toEndOf="@+id/connect_bt2"
         app:layout_constraintStart_toStartOf="@+id/connect_bt2"
         app:layout_constraintTop_toBottomOf="@+id/connect_bt2" />
 
     <Button
-        android:id="@+id/sendBtn"
+        android:id="@+id/TurnOnBtn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="96dp"
-        android:text="Отправить"
+        android:layout_marginTop="56dp"
+        android:backgroundTint="#4CAF50"
+        android:text="Включить Светодиод"
         app:layout_constraintEnd_toEndOf="@+id/bList"
-        app:layout_constraintHorizontal_bias="0.496"
+        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="@+id/bList"
         app:layout_constraintTop_toBottomOf="@+id/bList" />
+
+    <Button
+        android:id="@+id/TurnOffBtn"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:backgroundTint="#AC4949"
+        android:text="Выключить светодиод"
+        app:layout_constraintEnd_toEndOf="@+id/TurnOnBtn"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/TurnOnBtn"
+        app:layout_constraintTop_toBottomOf="@+id/TurnOnBtn" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

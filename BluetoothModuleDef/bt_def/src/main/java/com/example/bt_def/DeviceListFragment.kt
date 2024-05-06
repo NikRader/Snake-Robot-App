@@ -32,6 +32,7 @@ class DeviceListFragment : Fragment(), ItemAdapter.Listener {
     private var bAdapter: BluetoothAdapter? = null
     private lateinit var binding: FragmentListBinding
     private lateinit var btLauncher: ActivityResultLauncher<Intent>
+
     // Ниже написано второе разрешение
     private lateinit var pLauncher: ActivityResultLauncher<Array<String>>
 
@@ -46,21 +47,22 @@ class DeviceListFragment : Fragment(), ItemAdapter.Listener {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        preferences = activity?.getSharedPreferences(BluetoothConstans.PREFERENCES, Context.MODE_PRIVATE)
+        preferences =
+            activity?.getSharedPreferences(BluetoothConstans.PREFERENCES, Context.MODE_PRIVATE)
         binding.bluetoothBt.setOnClickListener() {
-        btLauncher.launch(Intent(BluetoothAdapter.ACTION_REQUEST_ENABLE))
+            btLauncher.launch(Intent(BluetoothAdapter.ACTION_REQUEST_ENABLE))
 
         }
-        binding.searchBt.setOnClickListener(){
+        binding.searchBt.setOnClickListener() {
 
             try {
-                if (bAdapter?.isEnabled == true){  // если bluetooth включен
+                if (bAdapter?.isEnabled == true) {  // если bluetooth включен
 
                     bAdapter?.startDiscovery()
-                it.visibility = View.GONE
-                binding.pbSearch.visibility = View.VISIBLE
-            }
-            } catch (e: SecurityException){
+                    it.visibility = View.GONE
+                    binding.pbSearch.visibility = View.VISIBLE
+                }
+            } catch (e: SecurityException) {
 
 
             }
@@ -74,12 +76,16 @@ class DeviceListFragment : Fragment(), ItemAdapter.Listener {
 
     }
 
-// Заполение 2-х Recycler View
+    // Заполение 2-х Recycler View
     private fun initRcViews() = with(binding) {
         rcViewPaired.layoutManager = LinearLayoutManager(requireContext())
         rcViewSearch.layoutManager = LinearLayoutManager(requireContext())
-        itemAdapter =ItemAdapter(this@DeviceListFragment, false) // указываем на сам фрагмент, а не на binding
-        discoveryAdapter = ItemAdapter (this@DeviceListFragment, true) // указываем на сам фрагмент, а не на binding
+        itemAdapter = ItemAdapter(
+            this@DeviceListFragment,
+            false
+        ) // указываем на сам фрагмент, а не на binding
+        discoveryAdapter =
+            ItemAdapter(this@DeviceListFragment, true) // указываем на сам фрагмент, а не на binding
         rcViewPaired.adapter = itemAdapter
         rcViewSearch.adapter = discoveryAdapter
     }
@@ -91,12 +97,17 @@ class DeviceListFragment : Fragment(), ItemAdapter.Listener {
             val deviceList = bAdapter?.bondedDevices as Set<BluetoothDevice>
             deviceList.forEach() {
                 list.add(
-                    ListItem(it,preferences?.getString(BluetoothConstans.MAC, "") == it.address // Хитрое сравнение
+                    ListItem(
+                        it,
+                        preferences?.getString(
+                            BluetoothConstans.MAC,
+                            ""
+                        ) == it.address // Хитрое сравнение
                     )
                 )
             }
-                binding.emptyPaired.visibility = if (list.isEmpty()) View.VISIBLE else View.GONE
-                itemAdapter.submitList(list)
+            binding.emptyPaired.visibility = if (list.isEmpty()) View.VISIBLE else View.GONE
+            itemAdapter.submitList(list)
 
         } catch (e: SecurityException) {
 
@@ -141,7 +152,6 @@ class DeviceListFragment : Fragment(), ItemAdapter.Listener {
             registerPermissionListener()
             launcherBtPermissions()
         }
-
     }
 
     private fun launcherBtPermissions() {
@@ -159,7 +169,6 @@ class DeviceListFragment : Fragment(), ItemAdapter.Listener {
                 )
             )
 
-
         }
 
     }
@@ -168,7 +177,6 @@ class DeviceListFragment : Fragment(), ItemAdapter.Listener {
         pLauncher = registerForActivityResult(
             ActivityResultContracts.RequestMultiplePermissions()
         ) {
-
 
         }
     }
@@ -185,58 +193,46 @@ class DeviceListFragment : Fragment(), ItemAdapter.Listener {
     }
 
     private val bReceiver = object : BroadcastReceiver() {
-        override fun onReceive( p0: Context?, intent: Intent?) {
+        override fun onReceive(p0: Context?, intent: Intent?) {
             if (intent?.action == BluetoothDevice.ACTION_FOUND) {
-                val device = intent.getParcelableExtra<BluetoothDevice>(BluetoothDevice.EXTRA_DEVICE)
+                val device =
+                    intent.getParcelableExtra<BluetoothDevice>(BluetoothDevice.EXTRA_DEVICE)
                 val list = mutableListOf<ListItem>()
                 list.addAll(discoveryAdapter.currentList)
-               if(device!=null ){
-                 try{
-                     if(device?.name !=null) {
-                         list.add(ListItem(device, false))
-                     }
+                if (device != null) {
+                    try {
+                        if (device?.name != null) {
+                            list.add(ListItem(device, false))
+                        }
 
-                 }  catch (e: SecurityException){
+                    } catch (e: SecurityException) {
 
+                    }
+                }
 
-                 }
+                discoveryAdapter.submitList(list.toList())
+                binding.emptySearch.visibility = if (list.isEmpty()) View.VISIBLE else View.GONE
+                try {
+                    Log.d("MyLog", "Device: ${device?.name}")
 
-               }
+                } catch (e: SecurityException) {
 
-
-
-
-
-
-
-              discoveryAdapter.submitList(list.toList())
-
-
-                binding.emptySearch.visibility = if(list.isEmpty()) View.VISIBLE else View.GONE
-                try{
-              Log.d("MyLog","Device: ${device?.name}")
-
-          } catch (e: SecurityException){
-
-
-          }
+                }
 
             } else if (intent?.action == BluetoothDevice.ACTION_BOND_STATE_CHANGED) {
-              getPairedDevices()
+                getPairedDevices()
             } else if (intent?.action == BluetoothAdapter.ACTION_DISCOVERY_FINISHED) {
                 binding.bluetoothBt.visibility = View.VISIBLE
                 binding.pbSearch.visibility = View.GONE
             }
 
         }
-
     }
 
-
-    private fun intentFilters(){
+    private fun intentFilters() {
         val f1 = IntentFilter(BluetoothDevice.ACTION_FOUND)
         val f2 = IntentFilter(BluetoothDevice.ACTION_BOND_STATE_CHANGED)
-        val f3= IntentFilter(BluetoothAdapter.ACTION_DISCOVERY_FINISHED)
+        val f3 = IntentFilter(BluetoothAdapter.ACTION_DISCOVERY_FINISHED)
         activity?.registerReceiver(bReceiver, f1)
         activity?.registerReceiver(bReceiver, f2)
         activity?.registerReceiver(bReceiver, f3)
