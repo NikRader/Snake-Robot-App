@@ -42,13 +42,16 @@ class MainFragment : Fragment(), BluetoothController.Listener {
         binding.connectBt.setOnClickListener(){
             bluetoothController.connect(mac?: "", this)
         }
+        binding.sendBtn.setOnClickListener {
+            bluetoothController.sendMessage("Hello from smartphone!")
+        }
     }
 
     private fun initBtAdapter() {
         val bManager = activity?.getSystemService(Context.BLUETOOTH_SERVICE) as BluetoothManager
         btAdapter = bManager.adapter
     }
-
+        // Метод для оповещения о подлючении устройства
     override fun onReceive(message: String) {
         activity?.runOnUiThread {
             when(message){
@@ -65,7 +68,7 @@ class MainFragment : Fragment(), BluetoothController.Listener {
                 }
                 else ->{
 
-
+                    binding.tvStatus.text = message
                 }
             }
         }

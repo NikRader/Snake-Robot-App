@@ -103,5 +103,29 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
+    <TextView
+        android:id="@+id/tvStatus"
+        android:layout_width="253dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="63dp"
+        android:background="#E8DCDC"
+        android:gravity="center"
+        android:text=" Здесь появится сообщение от ESP_32!"
+        android:textColor="#090909"
+        app:layout_constraintEnd_toEndOf="@+id/connect_bt2"
+        app:layout_constraintStart_toStartOf="@+id/connect_bt2"
+        app:layout_constraintTop_toBottomOf="@+id/connect_bt2" />
+
+    <Button
+        android:id="@+id/sendBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="96dp"
+        android:text="Отправить"
+        app:layout_constraintEnd_toEndOf="@+id/bList"
+        app:layout_constraintHorizontal_bias="0.496"
+        app:layout_constraintStart_toStartOf="@+id/bList"
+        app:layout_constraintTop_toBottomOf="@+id/bList" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
