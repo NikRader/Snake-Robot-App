@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/black_tex"
+    tools:context=".Robot_Controller">
+
+    <TextView
+        android:id="@+id/choose_tv"
+        android:layout_width="184dp"
+        android:layout_height="48dp"
+        android:layout_marginTop="108dp"
+        android:background="#0C67AF"
+        android:gravity="center"
+        android:text="Выбрать режим"
+        android:textColor="#0C0C0C"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Spinner
+        android:id="@+id/spinner"
+        android:layout_width="256dp"
+        android:layout_height="49dp"
+        android:layout_marginTop="53dp"
+        android:backgroundTint="#2196F3"
+        app:layout_constraintEnd_toEndOf="@+id/choose_tv"
+        app:layout_constraintStart_toStartOf="@+id/choose_tv"
+        app:layout_constraintTop_toBottomOf="@+id/choose_tv" />
+
+    <ImageView
+        android:id="@+id/back_btn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="48dp"
+        app:layout_constraintBottom_toTopOf="@+id/right_btn"
+        app:layout_constraintEnd_toEndOf="@+id/spinner"
+        app:layout_constraintTop_toBottomOf="@+id/spinner"
+        app:srcCompat="@drawable/backward_btn" />
+
+    <ImageView
+        android:id="@+id/forward_btn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toTopOf="@+id/left_btn"
+        app:layout_constraintStart_toStartOf="@+id/spinner"
+        app:layout_constraintTop_toTopOf="@+id/back_btn"
+        app:layout_constraintVertical_bias="0.0"
+        app:srcCompat="@drawable/forward_btn" />
+
+    <ImageView
+        android:id="@+id/left_btn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="@+id/right_btn"
+        app:layout_constraintStart_toStartOf="@+id/forward_btn"
+        app:srcCompat="@drawable/left_btn" />
+
+    <ImageView
+        android:id="@+id/right_btn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="120dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/back_btn"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/back_btn"
+        app:srcCompat="@drawable/right_btn" />
+
+    <Button
+        android:id="@+id/start_pause_btn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:backgroundTint="@color/blue"
+        android:text="Старт"
+        app:layout_constraintBottom_toBottomOf="@+id/left_btn"
+        app:layout_constraintEnd_toEndOf="@+id/back_btn"
+        app:layout_constraintStart_toStartOf="@+id/forward_btn"
+        app:layout_constraintTop_toTopOf="@+id/forward_btn" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -12,9 +12,16 @@
         <action
             android:id="@+id/action_mainFragment_to_deviceListFragment"
             app:destination="@id/deviceListFragment" />
+        <action
+            android:id="@+id/action_mainFragment_to_Robot_controller"
+            app:destination="@id/Robot_controller" />
     </fragment>
     <fragment
         android:id="@+id/deviceListFragment"
         android:name="com.example.bt_def.DeviceListFragment"
         android:label="DeviceListFragment" />
+    <activity
+        android:id="@+id/Robot_controller"
+        android:name="com.example.bluetoothmoduledef.Robot_Controller"/>
+
 </navigation>
