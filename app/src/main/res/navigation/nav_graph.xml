@@ -15,6 +15,9 @@
         <action
             android:id="@+id/action_mainFragment_to_Robot_controller"
             app:destination="@id/Robot_controller" />
+        <action
+            android:id="@+id/action_mainFragment_to_robot_ControllFragment"
+            app:destination="@id/robot_ControllFragment" />
     </fragment>
     <fragment
         android:id="@+id/deviceListFragment"
@@ -23,5 +26,10 @@
     <activity
         android:id="@+id/Robot_controller"
         android:name="com.example.bluetoothmoduledef.Robot_Controller"/>
+    <fragment
+        android:id="@+id/robot_ControllFragment"
+        android:name="com.example.bluetoothmoduledef.Robot_ControllFragment"
+        android:label="fragment_robot__controll"
+        tools:layout="@layout/fragment_robot__controll" />
 
 </navigation>

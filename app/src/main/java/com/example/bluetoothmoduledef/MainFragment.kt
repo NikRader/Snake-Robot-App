@@ -42,16 +42,16 @@ class MainFragment : Fragment(), BluetoothController.Listener {
             findNavController().navigate(R.id.action_mainFragment_to_deviceListFragment)
         }
         binding.toRobotControllBtn.setOnClickListener {
-            findNavController().navigate(R.id.action_mainFragment_to_Robot_controller)
+            findNavController().navigate(R.id.action_mainFragment_to_robot_ControllFragment)
         }
         binding.connectBt.setOnClickListener() {
             bluetoothController.connect(mac ?: "", this)
         }
         binding.TurnOnBtn.setOnClickListener {
-            bluetoothController.sendMessage("A")
+            bluetoothController.sendMessage("2")
         }
         binding.TurnOffBtn.setOnClickListener {
-            bluetoothController.sendMessage("B")
+            bluetoothController.sendMessage("4")
         }
 
 
