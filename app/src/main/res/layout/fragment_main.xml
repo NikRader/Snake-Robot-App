@@ -4,20 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#151515"
+    android:background="#009688"
     tools:context=".MainFragment">
-
-    <ImageView
-        android:id="@+id/imageView14"
-        android:layout_width="426dp"
-        android:layout_height="412dp"
-        android:src="@drawable/back3_new"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="@+id/connect_bt2"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0" />
 
     <android.widget.Button
         android:id="@+id/connect_bt2"
@@ -33,31 +21,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/imageView13" />
-
-    <ImageView
-        android:id="@+id/imageView13"
-        android:layout_width="426dp"
-        android:layout_height="412dp"
-        android:src="@drawable/back3_new"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="@+id/connect_bt2"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.379" />
-
-    <ImageView
-        android:id="@+id/imageView11"
-        android:layout_width="423dp"
-        android:layout_height="410dp"
-        android:src="@drawable/back3_new"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="1.0" />
+        tools:layout_editor_absoluteY="56dp" />
 
     <android.widget.Button
         android:id="@+id/bList"
@@ -71,10 +35,11 @@
         android:text="Список Bluetooth-устройств"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintHorizontal_bias="0.0"
 
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/connect_bt" />
+        app:layout_constraintTop_toBottomOf="@+id/connect_bt"
+        app:layout_constraintVertical_bias="0.0" />
 
     <android.widget.Button
         android:id="@+id/connect_bt"
@@ -87,15 +52,15 @@
         android:text="Присоединиться"
         app:iconTint="#3E2424"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/imageView11" />
+        tools:layout_editor_absoluteY="113dp" />
 
     <TextView
         android:id="@+id/checked_text"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="52dp"
+        android:layout_marginTop="20dp"
         android:layout_marginEnd="4dp"
         android:text="aвтор: Н. Кудрявцев"
         android:textColor="#E5EFEE"
@@ -119,20 +84,20 @@
 
     <Button
         android:id="@+id/TurnOnBtn"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="56dp"
+        android:layout_width="208dp"
+        android:layout_height="37dp"
+        android:layout_marginTop="20dp"
         android:backgroundTint="#4CAF50"
         android:text="Исходное положение"
         app:layout_constraintEnd_toEndOf="@+id/bList"
-        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintHorizontal_bias="0.494"
         app:layout_constraintStart_toStartOf="@+id/bList"
         app:layout_constraintTop_toBottomOf="@+id/bList" />
 
     <Button
         android:id="@+id/TurnOffBtn"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
+        android:layout_width="209dp"
+        android:layout_height="37dp"
         android:layout_marginTop="5dp"
         android:backgroundTint="#AC4949"
         android:text="Вперед"
@@ -144,12 +109,211 @@
     <Button
         android:id="@+id/to_robot_controll_btn"
         android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="35dp"
+        android:layout_height="31dp"
+        android:layout_marginTop="8dp"
         android:backgroundTint="@color/green"
         app:layout_constraintEnd_toEndOf="@+id/TurnOffBtn"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="@+id/TurnOffBtn"
         app:layout_constraintTop_toBottomOf="@+id/TurnOffBtn" />
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="100dp"
+        android:layout_height="23dp"
+        android:layout_marginBottom="15dp"
+        android:background="#F4F0F0"
+        android:text="delayTime"
+        android:textAlignment="textStart"
+        android:textColor="#101010"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/amplitude"
+        app:layout_constraintEnd_toEndOf="@+id/amplitude" />
+
+    <TextView
+        android:id="@+id/lag"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="15dp"
+        android:background="#F4F0F0"
+        android:text="lag "
+        android:textAlignment="textStart"
+        android:textColor="#101010"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/frequency"
+        app:layout_constraintEnd_toEndOf="@+id/frequency" />
+
+    <TextView
+        android:id="@+id/rightOffset"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="15dp"
+        android:background="#F4F0F0"
+        android:text="rightOffset"
+        android:textAlignment="textStart"
+        android:textColor="#101010"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/leftOffset"
+        app:layout_constraintEnd_toEndOf="@+id/leftOffset" />
+
+    <TextView
+        android:id="@+id/leftOffset"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="15dp"
+        android:background="#F4F0F0"
+        android:text="leftOffset "
+        android:textAlignment="textStart"
+        android:textColor="#101010"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/startPause"
+        app:layout_constraintEnd_toEndOf="@+id/startPause" />
+
+    <TextView
+        android:id="@+id/startPause"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="15dp"
+        android:background="#F4F0F0"
+        android:text="startPause"
+        android:textAlignment="textStart"
+        android:textColor="#101010"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/lag"
+        app:layout_constraintEnd_toEndOf="@+id/lag" />
+
+    <TextView
+        android:id="@+id/frequency"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:background="#F4F0F0"
+        android:text="frequency"
+        android:textAlignment="textStart"
+        android:textColor="#101010"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        tools:layout_editor_absoluteX="39dp"
+        tools:layout_editor_absoluteY="579dp" />
+
+    <TextView
+        android:id="@+id/amplitude"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="15dp"
+        android:background="#F4F0F0"
+        android:text="amplitude"
+        android:textAlignment="textStart"
+        android:textColor="#101010"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/rightOffset"
+        app:layout_constraintEnd_toEndOf="@+id/rightOffset" />
+
+    <SeekBar
+        android:id="@+id/delayTime_seekBar"
+        android:layout_width="150dp"
+        android:layout_height="23dp"
+        android:layout_marginStart="29dp"
+        app:layout_constraintBottom_toBottomOf="@+id/textView3"
+        app:layout_constraintStart_toEndOf="@+id/textView3"
+        app:layout_constraintTop_toTopOf="@+id/textView3" />
+
+    <SeekBar
+        android:id="@+id/amplitude_sb"
+        android:layout_width="150dp"
+        android:layout_height="23dp"
+        android:layout_marginStart="29dp"
+        app:layout_constraintBottom_toBottomOf="@+id/amplitude"
+        app:layout_constraintStart_toEndOf="@+id/amplitude"
+        app:layout_constraintTop_toTopOf="@+id/amplitude" />
+
+    <SeekBar
+        android:id="@+id/rightOffset_sb"
+        android:layout_width="150dp"
+        android:layout_height="23dp"
+        android:layout_marginStart="29dp"
+        app:layout_constraintBottom_toBottomOf="@+id/rightOffset"
+        app:layout_constraintStart_toEndOf="@+id/rightOffset"
+        app:layout_constraintTop_toTopOf="@+id/rightOffset" />
+
+    <SeekBar
+        android:id="@+id/leftOffset_sb"
+        android:layout_width="150dp"
+        android:layout_height="23dp"
+        android:layout_marginStart="29dp"
+        android:layout_marginBottom="58dp"
+        app:layout_constraintBottom_toBottomOf="@+id/leftOffset"
+        app:layout_constraintStart_toEndOf="@+id/leftOffset"
+        app:layout_constraintTop_toTopOf="@+id/leftOffset"
+        app:layout_constraintVertical_bias="0.016" />
+
+    <SeekBar
+        android:id="@+id/lag_sb"
+        android:layout_width="150dp"
+        android:layout_height="23dp"
+        android:layout_marginStart="29dp"
+        android:layout_marginBottom="95dp"
+        app:layout_constraintBottom_toBottomOf="@+id/lag"
+        app:layout_constraintStart_toEndOf="@+id/lag"
+        app:layout_constraintTop_toTopOf="@+id/lag"
+        app:layout_constraintVertical_bias="0.01" />
+
+    <SeekBar
+        android:id="@+id/frequency_sb"
+        android:layout_width="150dp"
+        android:layout_height="23dp"
+        android:layout_marginStart="29dp"
+        android:layout_marginBottom="114dp"
+        app:layout_constraintBottom_toBottomOf="@+id/frequency"
+        app:layout_constraintStart_toEndOf="@+id/frequency"
+        app:layout_constraintTop_toTopOf="@+id/frequency"
+        app:layout_constraintVertical_bias="0.008" />
+
+    <SeekBar
+        android:id="@+id/start_pause_sb"
+        android:layout_width="150dp"
+        android:layout_height="23dp"
+        android:layout_marginStart="29dp"
+        app:layout_constraintBottom_toBottomOf="@+id/startPause"
+        app:layout_constraintStart_toEndOf="@+id/startPause"
+        app:layout_constraintTop_toTopOf="@+id/startPause" />
+
+    <TextView
+        android:id="@+id/delayTime_value"
+        android:layout_width="50dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="19dp"
+        android:layout_marginBottom="4dp"
+        android:background="#FAF6F6"
+        android:gravity="center"
+        android:text="7"
+        android:textColor="#101010"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@+id/delayTime_seekBar"
+        app:layout_constraintStart_toEndOf="@+id/delayTime_seekBar"
+        app:layout_constraintTop_toTopOf="@+id/delayTime_seekBar" />
+
+    <TextView
+        android:id="@+id/amplitude_value"
+        android:layout_width="50sp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="19dp"
+        android:layout_marginTop="4dp"
+        android:background="#F8F1F1"
+        android:gravity="center"
+        android:text="30"
+        android:textColor="#0E0E0E"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@+id/amplitude_sb"
+        app:layout_constraintStart_toEndOf="@+id/amplitude_sb"
+        app:layout_constraintTop_toTopOf="@+id/amplitude_sb" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
