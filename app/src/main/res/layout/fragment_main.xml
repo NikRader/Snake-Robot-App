@@ -4,31 +4,13 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#009688"
+    android:background="#A5634F"
     tools:context=".MainFragment">
-
-    <android.widget.Button
-        android:id="@+id/connect_bt2"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="6dp"
-        android:layout_marginEnd="4dp"
-        android:background="@color/orange"
-        android:backgroundTint="@color/teal_700"
-        android:drawableTint="#8E2424"
-        android:text="Добро пожаловать в приложение!"
-        app:iconTint="#3E2424"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        tools:layout_editor_absoluteY="56dp" />
 
     <android.widget.Button
         android:id="@+id/bList"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="5dp"
-        android:layout_marginEnd="5dp"
         android:layout_marginBottom="280dp"
         android:background="#D14B4B"
         android:backgroundTint="#1CCDBD"
@@ -45,7 +27,6 @@
         android:id="@+id/connect_bt"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="4dp"
         android:background="@color/orange"
         android:backgroundTint="@color/teal_700"
         android:drawableTint="#8E2424"
@@ -57,102 +38,93 @@
         tools:layout_editor_absoluteY="113dp" />
 
     <TextView
-        android:id="@+id/checked_text"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:layout_marginEnd="4dp"
-        android:text="aвтор: Н. Кудрявцев"
-        android:textColor="#E5EFEE"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <TextView
         android:id="@+id/tvStatus"
         android:layout_width="253dp"
         android:layout_height="50dp"
-        android:layout_marginTop="63dp"
         android:background="#E8DCDC"
         android:gravity="center"
         android:text=" Здесь появится сообщение от ESP_32!"
         android:textColor="#090909"
-        android:visibility="gone"
-        app:layout_constraintEnd_toEndOf="@+id/connect_bt2"
-        app:layout_constraintStart_toStartOf="@+id/connect_bt2"
-        app:layout_constraintTop_toBottomOf="@+id/connect_bt2" />
+        android:visibility="gone" />
 
     <Button
-        android:id="@+id/TurnOnBtn"
-        android:layout_width="208dp"
-        android:layout_height="37dp"
+        android:id="@+id/Start_pos_btn"
+        android:layout_width="256dp"
+        android:layout_height="44dp"
         android:layout_marginTop="20dp"
         android:backgroundTint="#4CAF50"
-        android:text="Исходное положение"
+        android:gravity="center"
+        android:text="@string/start_position"
+        android:textColor="@color/black"
+        android:textSize="16sp"
+        android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="@+id/bList"
         app:layout_constraintHorizontal_bias="0.494"
         app:layout_constraintStart_toStartOf="@+id/bList"
-        app:layout_constraintTop_toBottomOf="@+id/bList" />
+        app:layout_constraintTop_toBottomOf="@+id/bList"
+        app:strokeColor="#040404"
+        app:strokeWidth="2dp" />
 
     <Button
-        android:id="@+id/TurnOffBtn"
-        android:layout_width="209dp"
-        android:layout_height="37dp"
-        android:layout_marginTop="5dp"
-        android:backgroundTint="#AC4949"
-        android:text="Вперед"
-        app:layout_constraintEnd_toEndOf="@+id/TurnOnBtn"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/TurnOnBtn"
-        app:layout_constraintTop_toBottomOf="@+id/TurnOnBtn" />
-
-    <Button
-        android:id="@+id/to_robot_controll_btn"
-        android:layout_width="0dp"
-        android:layout_height="31dp"
-        android:layout_marginTop="8dp"
-        android:backgroundTint="@color/green"
-        app:layout_constraintEnd_toEndOf="@+id/TurnOffBtn"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/TurnOffBtn"
-        app:layout_constraintTop_toBottomOf="@+id/TurnOffBtn" />
+        android:id="@+id/Forward_btn"
+        android:layout_width="129dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="38dp"
+        android:layout_marginTop="12dp"
+        android:layout_marginBottom="12dp"
+        android:backgroundTint="#009688"
+        android:gravity="center"
+        android:text="@string/forward"
+        android:textColor="@color/black"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/Backward_btn"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/Start_pos_btn"
+        app:strokeColor="#040404"
+        app:strokeWidth="2dp" />
 
     <TextView
-        android:id="@+id/textView3"
+        android:id="@+id/delayTime"
         android:layout_width="100dp"
         android:layout_height="23dp"
         android:layout_marginBottom="15dp"
-        android:background="#F4F0F0"
-        android:text="delayTime"
-        android:textAlignment="textStart"
+        android:background="@color/green_light"
+        android:gravity="center"
+        android:text="@string/delayTime"
+        android:textAlignment="center"
         android:textColor="#101010"
         android:textSize="16sp"
         android:textStyle="bold"
+        android:visibility="visible"
         app:layout_constraintBottom_toTopOf="@+id/amplitude"
         app:layout_constraintEnd_toEndOf="@+id/amplitude" />
 
     <TextView
-        android:id="@+id/lag"
+        android:id="@+id/frequency"
         android:layout_width="100dp"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="15dp"
-        android:background="#F4F0F0"
-        android:text="lag "
-        android:textAlignment="textStart"
+        android:layout_marginStart="20dp"
+        android:layout_marginBottom="120dp"
+        android:background="@color/green_light"
+        android:gravity="center"
+        android:text="@string/frequency"
+        android:textAlignment="center"
         android:textColor="#101010"
         android:textSize="16sp"
         android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/frequency"
-        app:layout_constraintEnd_toEndOf="@+id/frequency" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 
     <TextView
         android:id="@+id/rightOffset"
         android:layout_width="100dp"
         android:layout_height="wrap_content"
         android:layout_marginBottom="15dp"
-        android:background="#F4F0F0"
-        android:text="rightOffset"
-        android:textAlignment="textStart"
+        android:background="@color/green_light"
+        android:gravity="center"
+        android:text="@string/rightOffset"
+        android:textAlignment="center"
         android:textColor="#101010"
         android:textSize="16sp"
         android:textStyle="bold"
@@ -164,9 +136,10 @@
         android:layout_width="100dp"
         android:layout_height="wrap_content"
         android:layout_marginBottom="15dp"
-        android:background="#F4F0F0"
-        android:text="leftOffset "
-        android:textAlignment="textStart"
+        android:background="@color/green_light"
+        android:gravity="center"
+        android:text="@string/leftOffset"
+        android:textAlignment="center"
         android:textColor="#101010"
         android:textSize="16sp"
         android:textStyle="bold"
@@ -178,36 +151,25 @@
         android:layout_width="100dp"
         android:layout_height="wrap_content"
         android:layout_marginBottom="15dp"
-        android:background="#F4F0F0"
-        android:text="startPause"
-        android:textAlignment="textStart"
+        android:background="@color/green_light"
+        android:gravity="center"
+        android:text="@string/startPause"
+        android:textAlignment="center"
         android:textColor="#101010"
         android:textSize="16sp"
         android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/lag"
-        app:layout_constraintEnd_toEndOf="@+id/lag" />
-
-    <TextView
-        android:id="@+id/frequency"
-        android:layout_width="100dp"
-        android:layout_height="wrap_content"
-        android:background="#F4F0F0"
-        android:text="frequency"
-        android:textAlignment="textStart"
-        android:textColor="#101010"
-        android:textSize="16sp"
-        android:textStyle="bold"
-        tools:layout_editor_absoluteX="39dp"
-        tools:layout_editor_absoluteY="579dp" />
+        app:layout_constraintBottom_toTopOf="@+id/frequency"
+        app:layout_constraintEnd_toEndOf="@+id/frequency" />
 
     <TextView
         android:id="@+id/amplitude"
         android:layout_width="100dp"
         android:layout_height="wrap_content"
         android:layout_marginBottom="15dp"
-        android:background="#F4F0F0"
-        android:text="amplitude"
-        android:textAlignment="textStart"
+        android:background="@color/green_light"
+        android:gravity="center"
+        android:text="@string/amplitude"
+        android:textAlignment="center"
         android:textColor="#101010"
         android:textSize="16sp"
         android:textStyle="bold"
@@ -215,13 +177,14 @@
         app:layout_constraintEnd_toEndOf="@+id/rightOffset" />
 
     <SeekBar
-        android:id="@+id/delayTime_seekBar"
+        android:id="@+id/delayTimeSb"
         android:layout_width="150dp"
         android:layout_height="23dp"
         android:layout_marginStart="29dp"
-        app:layout_constraintBottom_toBottomOf="@+id/textView3"
-        app:layout_constraintStart_toEndOf="@+id/textView3"
-        app:layout_constraintTop_toTopOf="@+id/textView3" />
+        android:longClickable="false"
+        app:layout_constraintBottom_toBottomOf="@+id/delayTime"
+        app:layout_constraintStart_toEndOf="@+id/delayTime"
+        app:layout_constraintTop_toTopOf="@+id/delayTime" />
 
     <SeekBar
         android:id="@+id/amplitude_sb"
@@ -246,33 +209,20 @@
         android:layout_width="150dp"
         android:layout_height="23dp"
         android:layout_marginStart="29dp"
-        android:layout_marginBottom="58dp"
         app:layout_constraintBottom_toBottomOf="@+id/leftOffset"
         app:layout_constraintStart_toEndOf="@+id/leftOffset"
         app:layout_constraintTop_toTopOf="@+id/leftOffset"
         app:layout_constraintVertical_bias="0.016" />
 
     <SeekBar
-        android:id="@+id/lag_sb"
-        android:layout_width="150dp"
-        android:layout_height="23dp"
-        android:layout_marginStart="29dp"
-        android:layout_marginBottom="95dp"
-        app:layout_constraintBottom_toBottomOf="@+id/lag"
-        app:layout_constraintStart_toEndOf="@+id/lag"
-        app:layout_constraintTop_toTopOf="@+id/lag"
-        app:layout_constraintVertical_bias="0.01" />
-
-    <SeekBar
         android:id="@+id/frequency_sb"
         android:layout_width="150dp"
         android:layout_height="23dp"
         android:layout_marginStart="29dp"
-        android:layout_marginBottom="114dp"
         app:layout_constraintBottom_toBottomOf="@+id/frequency"
         app:layout_constraintStart_toEndOf="@+id/frequency"
         app:layout_constraintTop_toTopOf="@+id/frequency"
-        app:layout_constraintVertical_bias="0.008" />
+        app:layout_constraintVertical_bias="0.01" />
 
     <SeekBar
         android:id="@+id/start_pause_sb"
@@ -285,35 +235,181 @@
 
     <TextView
         android:id="@+id/delayTime_value"
-        android:layout_width="50dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="19dp"
+        android:layout_width="60dp"
+        android:layout_height="23dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="31dp"
         android:layout_marginBottom="4dp"
-        android:background="#FAF6F6"
+        android:background="@color/green_light"
         android:gravity="center"
         android:text="7"
-        android:textColor="#101010"
+        android:textColor="#090909"
         android:textSize="16sp"
         android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="@+id/delayTime_seekBar"
-        app:layout_constraintStart_toEndOf="@+id/delayTime_seekBar"
-        app:layout_constraintTop_toTopOf="@+id/delayTime_seekBar" />
+        app:layout_constraintBottom_toBottomOf="@+id/delayTimeSb"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/delayTimeSb"
+        app:layout_constraintTop_toTopOf="@+id/delayTimeSb" />
 
     <TextView
         android:id="@+id/amplitude_value"
-        android:layout_width="50sp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="19dp"
+        android:layout_width="60dp"
+        android:layout_height="23dp"
+        android:layout_marginStart="20dp"
         android:layout_marginTop="4dp"
-        android:background="#F8F1F1"
+        android:layout_marginEnd="31dp"
+        android:background="@color/green_light"
         android:gravity="center"
         android:text="30"
-        android:textColor="#0E0E0E"
+        android:textColor="#090909"
         android:textSize="16sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="@+id/amplitude_sb"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/amplitude_sb"
         app:layout_constraintTop_toTopOf="@+id/amplitude_sb" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_end="106dp" />
+
+    <TextView
+        android:id="@+id/rightOffset_value"
+        android:layout_width="60dp"
+        android:layout_height="23dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="31dp"
+        android:layout_marginBottom="4dp"
+        android:background="@color/green_light"
+        android:gravity="center"
+        android:text="0"
+        android:textColor="#090909"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@+id/rightOffset_sb"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/rightOffset_sb"
+        app:layout_constraintTop_toTopOf="@+id/rightOffset_sb" />
+
+    <TextView
+        android:id="@+id/leftOffset_value"
+        android:layout_width="60dp"
+        android:layout_height="23dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="31dp"
+        android:layout_marginBottom="4dp"
+        android:background="@color/green_light"
+        android:gravity="center"
+        android:text="0"
+        android:textColor="#090909"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@+id/leftOffset_sb"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/leftOffset_sb"
+        app:layout_constraintTop_toTopOf="@+id/leftOffset_sb" />
+
+    <TextView
+        android:id="@+id/startPause_value"
+        android:layout_width="60dp"
+        android:layout_height="23dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="31dp"
+        android:layout_marginBottom="4dp"
+        android:background="@color/green_light"
+        android:gravity="center"
+        android:text="0"
+        android:textColor="#090909"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@+id/start_pause_sb"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/start_pause_sb"
+        app:layout_constraintTop_toTopOf="@+id/start_pause_sb" />
+
+    <TextView
+        android:id="@+id/frequency_value"
+        android:layout_width="60dp"
+        android:layout_height="23dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="31dp"
+        android:background="@color/green_light"
+        android:gravity="center"
+        android:text="0"
+        android:textColor="#090909"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@+id/frequency_sb"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/frequency_sb"
+        app:layout_constraintTop_toTopOf="@+id/frequency_sb" />
+
+    <Button
+        android:id="@+id/Pause_btn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="51dp"
+        android:backgroundTint="#B34038"
+        android:text="@string/pause"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/frequency_sb"
+        app:strokeColor="@color/white"
+        app:strokeWidth="2sp" />
+
+    <Button
+        android:id="@+id/Left_btn"
+        android:layout_width="129dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="12dp"
+        android:layout_marginEnd="35dp"
+        android:layout_marginBottom="12dp"
+        android:backgroundTint="#009688"
+        android:gravity="center"
+        android:text="@string/left"
+        android:textColor="@color/black"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/Right_btn"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/Start_pos_btn"
+        app:strokeColor="#040404"
+        app:strokeWidth="2dp" />
+
+    <Button
+        android:id="@+id/Backward_btn"
+        android:layout_width="129dp"
+        android:layout_height="50dp"
+        android:layout_marginBottom="12dp"
+        android:backgroundTint="#009688"
+        android:gravity="center"
+        android:text="@string/backward"
+        android:textColor="@color/black"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/delayTime"
+        app:layout_constraintEnd_toEndOf="@+id/Forward_btn"
+        app:layout_constraintStart_toStartOf="@+id/Forward_btn"
+        app:layout_constraintTop_toBottomOf="@+id/Forward_btn"
+        app:strokeColor="#040404"
+        app:strokeWidth="2dp" />
+
+    <Button
+        android:id="@+id/Right_btn"
+        android:layout_width="129dp"
+        android:layout_height="50dp"
+        android:layout_marginBottom="12dp"
+        android:backgroundTint="#009688"
+        android:gravity="center"
+        android:text="@string/right"
+        android:textColor="@color/black"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/delayTime_value"
+        app:layout_constraintEnd_toEndOf="@+id/Left_btn"
+        app:layout_constraintStart_toStartOf="@+id/Left_btn"
+        app:layout_constraintTop_toBottomOf="@+id/Left_btn"
+        app:strokeColor="#040404"
+        app:strokeWidth="2dp" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
