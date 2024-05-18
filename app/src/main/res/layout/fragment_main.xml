@@ -101,14 +101,14 @@
         app:layout_constraintEnd_toEndOf="@+id/amplitude" />
 
     <TextView
-        android:id="@+id/frequency"
+        android:id="@+id/offset"
         android:layout_width="100dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="20dp"
         android:layout_marginBottom="120dp"
         android:background="@color/green_light"
         android:gravity="center"
-        android:text="@string/frequency"
+        android:text="@string/offset"
         android:textAlignment="center"
         android:textColor="#101010"
         android:textSize="16sp"
@@ -158,8 +158,8 @@
         android:textColor="#101010"
         android:textSize="16sp"
         android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/frequency"
-        app:layout_constraintEnd_toEndOf="@+id/frequency" />
+        app:layout_constraintBottom_toTopOf="@+id/offset"
+        app:layout_constraintEnd_toEndOf="@+id/offset" />
 
     <TextView
         android:id="@+id/amplitude"
@@ -215,13 +215,13 @@
         app:layout_constraintVertical_bias="0.016" />
 
     <SeekBar
-        android:id="@+id/frequency_sb"
+        android:id="@+id/offset_sb"
         android:layout_width="150dp"
         android:layout_height="23dp"
         android:layout_marginStart="29dp"
-        app:layout_constraintBottom_toBottomOf="@+id/frequency"
-        app:layout_constraintStart_toEndOf="@+id/frequency"
-        app:layout_constraintTop_toTopOf="@+id/frequency"
+        app:layout_constraintBottom_toBottomOf="@+id/offset"
+        app:layout_constraintStart_toEndOf="@+id/offset"
+        app:layout_constraintTop_toTopOf="@+id/offset"
         app:layout_constraintVertical_bias="0.01" />
 
     <SeekBar
@@ -328,7 +328,7 @@
         app:layout_constraintTop_toTopOf="@+id/start_pause_sb" />
 
     <TextView
-        android:id="@+id/frequency_value"
+        android:id="@+id/offset_value"
         android:layout_width="60dp"
         android:layout_height="23dp"
         android:layout_marginStart="20dp"
@@ -338,10 +338,10 @@
         android:text="0"
         android:textColor="#090909"
         android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="@+id/frequency_sb"
+        app:layout_constraintBottom_toBottomOf="@+id/offset_sb"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/frequency_sb"
-        app:layout_constraintTop_toTopOf="@+id/frequency_sb" />
+        app:layout_constraintStart_toEndOf="@+id/offset_sb"
+        app:layout_constraintTop_toTopOf="@+id/offset_sb" />
 
     <Button
         android:id="@+id/Pause_btn"
@@ -352,7 +352,7 @@
         android:text="@string/pause"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/frequency_sb"
+        app:layout_constraintTop_toBottomOf="@+id/offset_sb"
         app:strokeColor="@color/white"
         app:strokeWidth="2sp" />
 

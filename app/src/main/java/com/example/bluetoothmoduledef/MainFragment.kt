@@ -87,8 +87,8 @@ class MainFragment : Fragment(), BluetoothController.Listener {
         startPauseSb.min = 500
         startPauseSb.max = 5000
 
-        frequencySb.min = (1/2)
-        frequencySb.max = 1
+        offsetSb.min = 1
+        offsetSb.max = 10
 
         delayTimeSb.setOnSeekBarChangeListener(object : SeekBar.OnSeekBarChangeListener {
             override fun onProgressChanged(seekBar: SeekBar?, progress: Int, fromUser: Boolean) {
@@ -157,16 +157,16 @@ class MainFragment : Fragment(), BluetoothController.Listener {
             }
         })
 
-        frequencySb.setOnSeekBarChangeListener(object : SeekBar.OnSeekBarChangeListener {
+        offsetSb.setOnSeekBarChangeListener(object : SeekBar.OnSeekBarChangeListener {
             override fun onProgressChanged(seekBar: SeekBar?, progress: Int, fromUser: Boolean) {
-                frequencyValue.text = frequencySb.progress.toString()
+                offsetValue.text = offsetSb.progress.toString()
             }
             override fun onStartTrackingTouch(seekBar: SeekBar?) {
 
             }
             override fun onStopTrackingTouch(seekBar: SeekBar?) {
-                val textF ="F"+ frequencyValue.text.toString()
-                bluetoothController.sendMessage(textF)
+                val textO ="O"+ offsetValue.text.toString()
+                bluetoothController.sendMessage(textO)
             }
         })
     }

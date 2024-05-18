@@ -16,7 +16,7 @@
 
     <!-- MainFragment -->
     <string name ="amplitude">amplitude  </string>
-    <string name ="frequency">frequency  </string>
+    <string name ="frequency">offset   </string>
     <string name ="rightOffset">rightOffset  </string>
     <string name ="leftOffset">leftOffset  </string>
     <string name ="offset">offset  </string>
