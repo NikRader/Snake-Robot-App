@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#A5634F"
+    android:background="#000000"
     tools:context=".MainFragment">
 
     <android.widget.Button
@@ -23,6 +23,7 @@
         app:layout_constraintTop_toBottomOf="@+id/connect_bt"
         app:layout_constraintVertical_bias="0.0" />
 
+    <!-- Ниже кнопки управления -->
     <android.widget.Button
         android:id="@+id/connect_bt"
         android:layout_width="0dp"
@@ -33,9 +34,9 @@
         android:text="Присоединиться"
         app:iconTint="#3E2424"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
-        tools:layout_editor_absoluteY="113dp" />
+        tools:layout_editor_absoluteY="16dp" />
 
     <TextView
         android:id="@+id/tvStatus"
@@ -47,47 +48,12 @@
         android:textColor="#090909"
         android:visibility="gone" />
 
-    <Button
-        android:id="@+id/Start_pos_btn"
-        android:layout_width="256dp"
-        android:layout_height="44dp"
-        android:layout_marginTop="20dp"
-        android:backgroundTint="#4CAF50"
-        android:gravity="center"
-        android:text="@string/start_position"
-        android:textColor="@color/black"
-        android:textSize="16sp"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="@+id/bList"
-        app:layout_constraintHorizontal_bias="0.494"
-        app:layout_constraintStart_toStartOf="@+id/bList"
-        app:layout_constraintTop_toBottomOf="@+id/bList"
-        app:strokeColor="#040404"
-        app:strokeWidth="2dp" />
-
-    <Button
-        android:id="@+id/Forward_btn"
-        android:layout_width="129dp"
-        android:layout_height="50dp"
-        android:layout_marginStart="38dp"
-        android:layout_marginTop="12dp"
-        android:layout_marginBottom="12dp"
-        android:backgroundTint="#009688"
-        android:gravity="center"
-        android:text="@string/forward"
-        android:textColor="@color/black"
-        android:textSize="16sp"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/Backward_btn"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/Start_pos_btn"
-        app:strokeColor="#040404"
-        app:strokeWidth="2dp" />
 
     <TextView
         android:id="@+id/delayTime"
-        android:layout_width="100dp"
-        android:layout_height="23dp"
+        android:layout_width="116dp"
+        android:layout_height="42dp"
+        android:layout_marginTop="346dp"
         android:layout_marginBottom="15dp"
         android:background="@color/green_light"
         android:gravity="center"
@@ -98,28 +64,14 @@
         android:textStyle="bold"
         android:visibility="visible"
         app:layout_constraintBottom_toTopOf="@+id/amplitude"
-        app:layout_constraintEnd_toEndOf="@+id/amplitude" />
-
-    <TextView
-        android:id="@+id/offset"
-        android:layout_width="100dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="20dp"
-        android:layout_marginBottom="120dp"
-        android:background="@color/green_light"
-        android:gravity="center"
-        android:text="@string/offset"
-        android:textAlignment="center"
-        android:textColor="#101010"
-        android:textSize="16sp"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintEnd_toEndOf="@+id/amplitude"
+        app:layout_constraintStart_toStartOf="@+id/amplitude"
+        app:layout_constraintTop_toBottomOf="@+id/bList" />
 
     <TextView
         android:id="@+id/rightOffset"
-        android:layout_width="100dp"
-        android:layout_height="wrap_content"
+        android:layout_width="116dp"
+        android:layout_height="30dp"
         android:layout_marginBottom="15dp"
         android:background="@color/green_light"
         android:gravity="center"
@@ -129,13 +81,15 @@
         android:textSize="16sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/leftOffset"
-        app:layout_constraintEnd_toEndOf="@+id/leftOffset" />
+        app:layout_constraintEnd_toEndOf="@+id/leftOffset"
+        app:layout_constraintStart_toStartOf="@+id/leftOffset" />
 
     <TextView
         android:id="@+id/leftOffset"
-        android:layout_width="100dp"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="15dp"
+        android:layout_width="116dp"
+        android:layout_height="30dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginBottom="64dp"
         android:background="@color/green_light"
         android:gravity="center"
         android:text="@string/leftOffset"
@@ -143,28 +97,13 @@
         android:textColor="#101010"
         android:textSize="16sp"
         android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/startPause"
-        app:layout_constraintEnd_toEndOf="@+id/startPause" />
-
-    <TextView
-        android:id="@+id/startPause"
-        android:layout_width="100dp"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="15dp"
-        android:background="@color/green_light"
-        android:gravity="center"
-        android:text="@string/startPause"
-        android:textAlignment="center"
-        android:textColor="#101010"
-        android:textSize="16sp"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/offset"
-        app:layout_constraintEnd_toEndOf="@+id/offset" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 
     <TextView
         android:id="@+id/amplitude"
-        android:layout_width="100dp"
-        android:layout_height="wrap_content"
+        android:layout_width="116dp"
+        android:layout_height="30dp"
         android:layout_marginBottom="15dp"
         android:background="@color/green_light"
         android:gravity="center"
@@ -174,13 +113,14 @@
         android:textSize="16sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/rightOffset"
-        app:layout_constraintEnd_toEndOf="@+id/rightOffset" />
+        app:layout_constraintEnd_toEndOf="@+id/rightOffset"
+        app:layout_constraintStart_toStartOf="@+id/rightOffset" />
 
     <SeekBar
         android:id="@+id/delayTimeSb"
         android:layout_width="150dp"
-        android:layout_height="23dp"
-        android:layout_marginStart="29dp"
+        android:layout_height="30dp"
+        android:layout_marginStart="7dp"
         android:longClickable="false"
         app:layout_constraintBottom_toBottomOf="@+id/delayTime"
         app:layout_constraintStart_toEndOf="@+id/delayTime"
@@ -189,8 +129,8 @@
     <SeekBar
         android:id="@+id/amplitude_sb"
         android:layout_width="150dp"
-        android:layout_height="23dp"
-        android:layout_marginStart="29dp"
+        android:layout_height="30dp"
+        android:layout_marginStart="7dp"
         app:layout_constraintBottom_toBottomOf="@+id/amplitude"
         app:layout_constraintStart_toEndOf="@+id/amplitude"
         app:layout_constraintTop_toTopOf="@+id/amplitude" />
@@ -198,8 +138,8 @@
     <SeekBar
         android:id="@+id/rightOffset_sb"
         android:layout_width="150dp"
-        android:layout_height="23dp"
-        android:layout_marginStart="29dp"
+        android:layout_height="30dp"
+        android:layout_marginStart="7dp"
         app:layout_constraintBottom_toBottomOf="@+id/rightOffset"
         app:layout_constraintStart_toEndOf="@+id/rightOffset"
         app:layout_constraintTop_toTopOf="@+id/rightOffset" />
@@ -207,36 +147,17 @@
     <SeekBar
         android:id="@+id/leftOffset_sb"
         android:layout_width="150dp"
-        android:layout_height="23dp"
-        android:layout_marginStart="29dp"
+        android:layout_height="30dp"
+        android:layout_marginStart="7dp"
         app:layout_constraintBottom_toBottomOf="@+id/leftOffset"
         app:layout_constraintStart_toEndOf="@+id/leftOffset"
         app:layout_constraintTop_toTopOf="@+id/leftOffset"
         app:layout_constraintVertical_bias="0.016" />
 
-    <SeekBar
-        android:id="@+id/offset_sb"
-        android:layout_width="150dp"
-        android:layout_height="23dp"
-        android:layout_marginStart="29dp"
-        app:layout_constraintBottom_toBottomOf="@+id/offset"
-        app:layout_constraintStart_toEndOf="@+id/offset"
-        app:layout_constraintTop_toTopOf="@+id/offset"
-        app:layout_constraintVertical_bias="0.01" />
-
-    <SeekBar
-        android:id="@+id/start_pause_sb"
-        android:layout_width="150dp"
-        android:layout_height="23dp"
-        android:layout_marginStart="29dp"
-        app:layout_constraintBottom_toBottomOf="@+id/startPause"
-        app:layout_constraintStart_toEndOf="@+id/startPause"
-        app:layout_constraintTop_toTopOf="@+id/startPause" />
-
     <TextView
         android:id="@+id/delayTime_value"
         android:layout_width="60dp"
-        android:layout_height="23dp"
+        android:layout_height="30dp"
         android:layout_marginStart="20dp"
         android:layout_marginEnd="31dp"
         android:layout_marginBottom="4dp"
@@ -246,6 +167,7 @@
         android:textColor="#090909"
         android:textSize="16sp"
         android:textStyle="bold"
+        android:visibility="visible"
         app:layout_constraintBottom_toBottomOf="@+id/delayTimeSb"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/delayTimeSb"
@@ -254,7 +176,7 @@
     <TextView
         android:id="@+id/amplitude_value"
         android:layout_width="60dp"
-        android:layout_height="23dp"
+        android:layout_height="30dp"
         android:layout_marginStart="20dp"
         android:layout_marginTop="4dp"
         android:layout_marginEnd="31dp"
@@ -269,17 +191,10 @@
         app:layout_constraintStart_toEndOf="@+id/amplitude_sb"
         app:layout_constraintTop_toTopOf="@+id/amplitude_sb" />
 
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/guideline"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        app:layout_constraintGuide_end="106dp" />
-
     <TextView
         android:id="@+id/rightOffset_value"
         android:layout_width="60dp"
-        android:layout_height="23dp"
+        android:layout_height="30dp"
         android:layout_marginStart="20dp"
         android:layout_marginEnd="31dp"
         android:layout_marginBottom="4dp"
@@ -296,7 +211,7 @@
     <TextView
         android:id="@+id/leftOffset_value"
         android:layout_width="60dp"
-        android:layout_height="23dp"
+        android:layout_height="30dp"
         android:layout_marginStart="20dp"
         android:layout_marginEnd="31dp"
         android:layout_marginBottom="4dp"
@@ -310,106 +225,81 @@
         app:layout_constraintStart_toEndOf="@+id/leftOffset_sb"
         app:layout_constraintTop_toTopOf="@+id/leftOffset_sb" />
 
-    <TextView
-        android:id="@+id/startPause_value"
-        android:layout_width="60dp"
-        android:layout_height="23dp"
-        android:layout_marginStart="20dp"
-        android:layout_marginEnd="31dp"
-        android:layout_marginBottom="4dp"
-        android:background="@color/green_light"
-        android:gravity="center"
-        android:text="0"
-        android:textColor="#090909"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="@+id/start_pause_sb"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/start_pause_sb"
-        app:layout_constraintTop_toTopOf="@+id/start_pause_sb" />
-
-    <TextView
-        android:id="@+id/offset_value"
-        android:layout_width="60dp"
-        android:layout_height="23dp"
-        android:layout_marginStart="20dp"
-        android:layout_marginEnd="31dp"
-        android:background="@color/green_light"
-        android:gravity="center"
-        android:text="0"
-        android:textColor="#090909"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="@+id/offset_sb"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/offset_sb"
-        app:layout_constraintTop_toTopOf="@+id/offset_sb" />
-
     <Button
         android:id="@+id/Pause_btn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="51dp"
+        android:layout_marginBottom="19dp"
         android:backgroundTint="#B34038"
         android:text="@string/pause"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/offset_sb"
         app:strokeColor="@color/white"
         app:strokeWidth="2sp" />
 
-    <Button
-        android:id="@+id/Left_btn"
-        android:layout_width="129dp"
-        android:layout_height="50dp"
-        android:layout_marginTop="12dp"
-        android:layout_marginEnd="35dp"
-        android:layout_marginBottom="12dp"
-        android:backgroundTint="#009688"
-        android:gravity="center"
-        android:text="@string/left"
-        android:textColor="@color/black"
-        android:textSize="16sp"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/Right_btn"
+    <ImageView
+        android:id="@+id/ForwardBtn"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        android:layout_marginTop="53dp"
+        android:onClick="forward_move"
+        android:rotation="270"
+        android:src="@drawable/right"
+        app:layout_constraintEnd_toEndOf="@+id/StartPosBtn"
+        app:layout_constraintStart_toStartOf="@+id/StartPosBtn"
+        app:layout_constraintTop_toBottomOf="@+id/bList" />
+
+    <ImageView
+        android:id="@+id/RightBtn"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        android:layout_marginEnd="60dp"
+        android:onClick="right_move"
+        android:src="@drawable/right"
+        app:layout_constraintBottom_toBottomOf="@+id/StartPosBtn"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/Start_pos_btn"
-        app:strokeColor="#040404"
-        app:strokeWidth="2dp" />
+        app:layout_constraintTop_toTopOf="@+id/StartPosBtn" />
 
-    <Button
-        android:id="@+id/Backward_btn"
-        android:layout_width="129dp"
-        android:layout_height="50dp"
-        android:layout_marginBottom="12dp"
-        android:backgroundTint="#009688"
-        android:gravity="center"
-        android:text="@string/backward"
-        android:textColor="@color/black"
-        android:textSize="16sp"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/delayTime"
-        app:layout_constraintEnd_toEndOf="@+id/Forward_btn"
-        app:layout_constraintStart_toStartOf="@+id/Forward_btn"
-        app:layout_constraintTop_toBottomOf="@+id/Forward_btn"
-        app:strokeColor="#040404"
-        app:strokeWidth="2dp" />
+    <ImageView
+        android:id="@+id/BackwardBtn"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        android:layout_marginBottom="300dp"
+        android:onClick="backward_move"
+        android:rotation="90"
+        android:src="@drawable/right"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/StartPosBtn"
+        app:layout_constraintStart_toStartOf="@+id/StartPosBtn" />
 
-    <Button
-        android:id="@+id/Right_btn"
-        android:layout_width="129dp"
-        android:layout_height="50dp"
-        android:layout_marginBottom="12dp"
-        android:backgroundTint="#009688"
-        android:gravity="center"
-        android:text="@string/right"
-        android:textColor="@color/black"
-        android:textSize="16sp"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/delayTime_value"
-        app:layout_constraintEnd_toEndOf="@+id/Left_btn"
-        app:layout_constraintStart_toStartOf="@+id/Left_btn"
-        app:layout_constraintTop_toBottomOf="@+id/Left_btn"
-        app:strokeColor="#040404"
-        app:strokeWidth="2dp" />
+    <ImageView
+        android:id="@+id/LeftBtn"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        android:layout_marginStart="60dp"
+        android:onClick="left_move"
+        android:rotation="180"
+        android:src="@drawable/right"
+        app:layout_constraintBottom_toBottomOf="@+id/StartPosBtn"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/StartPosBtn" />
+
+    <ImageView
+        android:id="@+id/StartPosBtn"
+        android:layout_width="78dp"
+        android:layout_height="78dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="24dp"
+        android:layout_marginEnd="24dp"
+        android:layout_marginBottom="24dp"
+        android:onClick="start_pos"
+        android:src="@drawable/start"
+        app:layout_constraintBottom_toTopOf="@+id/BackwardBtn"
+        app:layout_constraintEnd_toStartOf="@+id/RightBtn"
+        app:layout_constraintStart_toEndOf="@+id/LeftBtn"
+        app:layout_constraintTop_toBottomOf="@+id/ForwardBtn" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">BluetoothModuleDef</string>
+    <string name="app_name">Snake-Robot-Controll</string>
     <string name="bluetooth">Bluetooth</string>
     <string name="title_activity_start">StartActivity</string>
     <!-- Strings used for fragments for navigation -->
@@ -15,12 +15,12 @@
     <string name="hello_blank_fragment">Hello blank fragment</string>
 
     <!-- MainFragment -->
-    <string name ="amplitude">amplitude  </string>
+    <string name ="amplitude">амплитуда  </string>
     <string name ="frequency">offset   </string>
-    <string name ="rightOffset">rightOffset  </string>
-    <string name ="leftOffset">leftOffset  </string>
+    <string name ="rightOffset">сдвиг вправо  </string>
+    <string name ="leftOffset">сдвиг влево  </string>
     <string name ="offset">offset  </string>
-    <string name ="delayTime">delayTime </string>
+    <string name ="delayTime">временная задержка  </string>
     <string name ="startPause">startPause  </string>
     <string name ="test">test  </string>
     <string name ="pause">Пауза  </string>

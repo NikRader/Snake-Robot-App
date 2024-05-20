@@ -4,6 +4,7 @@ import android.bluetooth.BluetoothAdapter
 import android.bluetooth.BluetoothManager
 import android.content.Context
 import android.content.Intent
+import android.graphics.Color
 import android.os.Build
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -35,6 +36,10 @@ class MainFragment : Fragment(), BluetoothController.Listener {
         super.onViewCreated(view, savedInstanceState)
 
         initBtAdapter()
+        binding.delayTimeSb.progress = 4
+        binding.delayTimeValue.text = binding.delayTimeSb.progress.toString()
+        binding.amplitudeSb.progress = 45
+        binding.amplitudeValue.text = binding.amplitudeSb.progress.toString()
         seekbars()
         val pref = activity?.getSharedPreferences(
             BluetoothConstans.PREFERENCES, Context.MODE_PRIVATE
@@ -48,28 +53,50 @@ class MainFragment : Fragment(), BluetoothController.Listener {
         binding.connectBt.setOnClickListener() {
             bluetoothController.connect(mac ?: "", this)
         }
+
+
+
+
+
+
         binding.StartPosBtn.setOnClickListener {
-            bluetoothController.sendMessage("i1")
+           start_pos()
         }
         binding.ForwardBtn.setOnClickListener {
-            bluetoothController.sendMessage("f1")
+           forward_move()
         }
         binding.BackwardBtn.setOnClickListener {
-            bluetoothController.sendMessage("b1")
+          backward_move()
         }
         binding.LeftBtn.setOnClickListener {
-            bluetoothController.sendMessage("l1")
+           left_move()
         }
         binding.RightBtn.setOnClickListener {
-            bluetoothController.sendMessage("r1")
+          right_move()
         }
-        binding.PauseBtn.setOnClickListener {
-            bluetoothController.sendMessage("p1")
-        }
+//        binding.PauseBtn.setOnClickListener {
+//
+//        }
+    }
+    private fun start_pos(){
+        bluetoothController.sendMessage("i1")
+    }
+    private fun forward_move(){
+        bluetoothController.sendMessage("f1")
+    }
+    private fun backward_move(){
+        bluetoothController.sendMessage("b1")
+    }
+    private fun left_move(){
+        bluetoothController.sendMessage("l1")
+    }
+    private fun right_move(){
+        bluetoothController.sendMessage("r1")
     }
 
     @RequiresApi(Build.VERSION_CODES.O)
     private fun seekbars() = with(binding) {
+
         // Границы значений
 
         delayTimeSb.min = 1
@@ -84,11 +111,11 @@ class MainFragment : Fragment(), BluetoothController.Listener {
         leftOffsetSb.min = -10
         leftOffsetSb.max = 10
 
-        startPauseSb.min = 500
-        startPauseSb.max = 5000
-
-        offsetSb.min = 1
-        offsetSb.max = 10
+//        startPauseSb.min = 500
+//        startPauseSb.max = 5000
+//
+//        offsetSb.min = 1
+//        offsetSb.max = 10
 
         delayTimeSb.setOnSeekBarChangeListener(object : SeekBar.OnSeekBarChangeListener {
             override fun onProgressChanged(seekBar: SeekBar?, progress: Int, fromUser: Boolean) {
@@ -141,32 +168,6 @@ class MainFragment : Fragment(), BluetoothController.Listener {
             override fun onStopTrackingTouch(seekBar: SeekBar?) {
                 val textL ="L"+ leftOffsetValue.text.toString()
                 bluetoothController.sendMessage(textL)
-            }
-        })
-
-        startPauseSb.setOnSeekBarChangeListener(object : SeekBar.OnSeekBarChangeListener {
-            override fun onProgressChanged(seekBar: SeekBar?, progress: Int, fromUser: Boolean) {
-                startPauseValue.text = startPauseSb.progress.toString()
-            }
-            override fun onStartTrackingTouch(seekBar: SeekBar?) {
-
-            }
-            override fun onStopTrackingTouch(seekBar: SeekBar?) {
-                val textS ="S"+ startPauseValue.text.toString()
-                bluetoothController.sendMessage(textS)
-            }
-        })
-
-        offsetSb.setOnSeekBarChangeListener(object : SeekBar.OnSeekBarChangeListener {
-            override fun onProgressChanged(seekBar: SeekBar?, progress: Int, fromUser: Boolean) {
-                offsetValue.text = offsetSb.progress.toString()
-            }
-            override fun onStartTrackingTouch(seekBar: SeekBar?) {
-
-            }
-            override fun onStopTrackingTouch(seekBar: SeekBar?) {
-                val textO ="O"+ offsetValue.text.toString()
-                bluetoothController.sendMessage(textO)
             }
         })
     }
