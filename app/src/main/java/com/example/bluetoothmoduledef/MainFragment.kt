@@ -54,11 +54,6 @@ class MainFragment : Fragment(), BluetoothController.Listener {
             bluetoothController.connect(mac ?: "", this)
         }
 
-
-
-
-
-
         binding.StartPosBtn.setOnClickListener {
            start_pos()
         }
