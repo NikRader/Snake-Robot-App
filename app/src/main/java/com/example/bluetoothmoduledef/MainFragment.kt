@@ -3,7 +3,7 @@ package com.example.bluetoothmoduledef
 import android.bluetooth.BluetoothAdapter
 import android.bluetooth.BluetoothManager
 import android.content.Context
-import android.content.Intent
+import android.content.res.ColorStateList
 import android.graphics.Color
 import android.os.Build
 import android.os.Bundle
@@ -20,7 +20,6 @@ import com.example.bluetoothmoduledef.databinding.FragmentMainBinding
 import com.example.bt_def.BluetoothConstans
 import com.example.bt_def.bluetooth.BluetoothController
 import java.util.Timer
-import java.util.TimerTask
 
 class MainFragment : Fragment(), BluetoothController.Listener {
     var timer: Timer? = null
@@ -58,37 +57,42 @@ class MainFragment : Fragment(), BluetoothController.Listener {
         }
 
         binding.StartPosBtn.setOnClickListener {
-           start_pos()
+            start_pos()
         }
         binding.ForwardBtn.setOnClickListener {
-           forward_move()
+            forward_move()
         }
         binding.BackwardBtn.setOnClickListener {
-          backward_move()
+            backward_move()
         }
         binding.LeftBtn.setOnClickListener {
-           left_move()
+            left_move()
         }
         binding.RightBtn.setOnClickListener {
-          right_move()
+            right_move()
         }
 //        binding.PauseBtn.setOnClickListener {
 //
 //        }
     }
-    private fun start_pos(){
+
+    private fun start_pos() {
         bluetoothController.sendMessage("i1")
     }
-    private fun forward_move(){
+
+    private fun forward_move() {
         bluetoothController.sendMessage("f1")
     }
-    private fun backward_move(){
+
+    private fun backward_move() {
         bluetoothController.sendMessage("b1")
     }
-    private fun left_move(){
+
+    private fun left_move() {
         bluetoothController.sendMessage("l1")
     }
-    private fun right_move(){
+
+    private fun right_move() {
         bluetoothController.sendMessage("r1")
     }
 
@@ -113,11 +117,13 @@ class MainFragment : Fragment(), BluetoothController.Listener {
             override fun onProgressChanged(seekBar: SeekBar?, progress: Int, fromUser: Boolean) {
                 delayTimeValue.text = delayTimeSb.progress.toString()
             }
+
             override fun onStartTrackingTouch(seekBar: SeekBar?) {
 
             }
+
             override fun onStopTrackingTouch(seekBar: SeekBar?) {
-                val textD ="D"+ delayTimeValue.text.toString()
+                val textD = "D" + delayTimeValue.text.toString()
                 bluetoothController.sendMessage(textD)
             }
         })
@@ -126,11 +132,13 @@ class MainFragment : Fragment(), BluetoothController.Listener {
             override fun onProgressChanged(seekBar: SeekBar?, progress: Int, fromUser: Boolean) {
                 amplitudeValue.text = amplitudeSb.progress.toString()
             }
+
             override fun onStartTrackingTouch(seekBar: SeekBar?) {
 
             }
+
             override fun onStopTrackingTouch(seekBar: SeekBar?) {
-                val textA ="A"+ amplitudeValue.text.toString()
+                val textA = "A" + amplitudeValue.text.toString()
                 bluetoothController.sendMessage(textA)
             }
         })
@@ -140,11 +148,13 @@ class MainFragment : Fragment(), BluetoothController.Listener {
                 rightOffsetValue.text = rightOffsetSb.progress.toString()
 
             }
+
             override fun onStartTrackingTouch(seekBar: SeekBar?) {
 
             }
+
             override fun onStopTrackingTouch(seekBar: SeekBar?) {
-                val textR ="R"+ rightOffsetValue.text.toString()
+                val textR = "R" + rightOffsetValue.text.toString()
                 bluetoothController.sendMessage(textR)
             }
         })
@@ -154,11 +164,13 @@ class MainFragment : Fragment(), BluetoothController.Listener {
                 leftOffsetValue.text = leftOffsetSb.progress.toString()
 
             }
+
             override fun onStartTrackingTouch(seekBar: SeekBar?) {
 
             }
+
             override fun onStopTrackingTouch(seekBar: SeekBar?) {
-                val textL ="L"+ leftOffsetValue.text.toString()
+                val textL = "L" + leftOffsetValue.text.toString()
                 bluetoothController.sendMessage(textL)
             }
         })
@@ -168,6 +180,7 @@ class MainFragment : Fragment(), BluetoothController.Listener {
         val bManager = activity?.getSystemService(Context.BLUETOOTH_SERVICE) as BluetoothManager
         btAdapter = bManager.adapter
     }
+
 
     // Метод для оповещения о подлючении устройства
     override fun onReceive(message: String) {
@@ -187,10 +200,44 @@ class MainFragment : Fragment(), BluetoothController.Listener {
 
                 else -> {
                     var textBat = message
-                    binding.voltsBatTv.text = message
-                    Log.d("","Напряжение $textBat")
+                    // Регулярное выражение для поиска целых чисел
+                    val pattern = Regex("\\d")
+
+                    if (pattern.containsMatchIn(textBat)) {
+                        try {
+                            var bat = textBat.toIntOrNull()
+                            if(bat!=null){
+                                Log.d("", "Вольт до: <$bat>")
+                                var volts_old = bat.toFloat()
+                                val  a = 100
+                                var volts= (bat.toDouble()/a.toDouble())
+                                Log.d("", "Вольт после: <$volts>")
+                                var str_volts = volts.toString()
+                                var str_show = "Напряжение: $str_volts вольт"
+                                binding.voltsShowBtn.text = str_show
+                                var new_bat = (bat - 700) / (100 * 0.014)
+                                val roundedbut = Math.round(new_bat).toInt()
+                                if(roundedbut<20) {binding.voltsBatTv.setTextColor(Color.parseColor("#F44336"))}
+                                if(roundedbut>=20 &&roundedbut<60 ){binding.voltsBatTv.setTextColor(Color.parseColor("#DDD160"))}
+                                if(roundedbut>60 ){binding.voltsBatTv.setTextColor(Color.parseColor("#36B63B"))}
+                                val str_roundbut = roundedbut.toString()
+                                val my_str = "Заряд аккумулятора: $str_roundbut %"
+                                binding.voltsBatTv.text = my_str
+                                Log.d("", "Заряд аккумулятора: <$str_roundbut>%")
+                            }
+
+
+                        } catch (e: NumberFormatException) {
+                            println("Произошла ошибка: ${e.message}")
+                            // Обработка ошибки, например, уведомление пользователя
+                        }
+
+                    } else {
+                        Log.d("", "Строка не содержит целых чисел")
+                    }
                 }
             }
         }
     }
 }
+
