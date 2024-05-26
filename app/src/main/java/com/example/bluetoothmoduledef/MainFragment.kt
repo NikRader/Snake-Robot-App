@@ -7,6 +7,7 @@ import android.content.Intent
 import android.graphics.Color
 import android.os.Build
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -18,9 +19,11 @@ import androidx.navigation.fragment.findNavController
 import com.example.bluetoothmoduledef.databinding.FragmentMainBinding
 import com.example.bt_def.BluetoothConstans
 import com.example.bt_def.bluetooth.BluetoothController
+import java.util.Timer
+import java.util.TimerTask
 
 class MainFragment : Fragment(), BluetoothController.Listener {
-
+    var timer: Timer? = null
     private lateinit var binding: FragmentMainBinding
     private lateinit var bluetoothController: BluetoothController
     private lateinit var btAdapter: BluetoothAdapter
@@ -53,11 +56,6 @@ class MainFragment : Fragment(), BluetoothController.Listener {
         binding.connectBt.setOnClickListener() {
             bluetoothController.connect(mac ?: "", this)
         }
-
-
-
-
-
 
         binding.StartPosBtn.setOnClickListener {
            start_pos()
@@ -110,12 +108,6 @@ class MainFragment : Fragment(), BluetoothController.Listener {
 
         leftOffsetSb.min = -10
         leftOffsetSb.max = 10
-
-//        startPauseSb.min = 500
-//        startPauseSb.max = 5000
-//
-//        offsetSb.min = 1
-//        offsetSb.max = 10
 
         delayTimeSb.setOnSeekBarChangeListener(object : SeekBar.OnSeekBarChangeListener {
             override fun onProgressChanged(seekBar: SeekBar?, progress: Int, fromUser: Boolean) {
@@ -194,8 +186,9 @@ class MainFragment : Fragment(), BluetoothController.Listener {
                 }
 
                 else -> {
-
-                    binding.tvStatus.text = message
+                    var textBat = message
+                    binding.voltsBatTv.text = message
+                    Log.d("","Напряжение $textBat")
                 }
             }
         }

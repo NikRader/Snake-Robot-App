@@ -243,13 +243,12 @@
         android:id="@+id/ForwardBtn"
         android:layout_width="70dp"
         android:layout_height="70dp"
-        android:layout_marginTop="53dp"
         android:onClick="forward_move"
         android:rotation="270"
         android:src="@drawable/right"
         app:layout_constraintEnd_toEndOf="@+id/StartPosBtn"
         app:layout_constraintStart_toStartOf="@+id/StartPosBtn"
-        app:layout_constraintTop_toBottomOf="@+id/bList" />
+        app:layout_constraintTop_toBottomOf="@+id/volts_bat_tv" />
 
     <ImageView
         android:id="@+id/RightBtn"
@@ -300,6 +299,20 @@
         app:layout_constraintEnd_toStartOf="@+id/RightBtn"
         app:layout_constraintStart_toEndOf="@+id/LeftBtn"
         app:layout_constraintTop_toBottomOf="@+id/ForwardBtn" />
+
+    <TextView
+        android:id="@+id/volts_bat_tv"
+        android:layout_width="165dp"
+        android:layout_height="116dp"
+        android:layout_marginStart="12dp"
+        android:layout_marginTop="24dp"
+        android:background="#F1EAEA"
+        android:gravity="center"
+        android:text="текст с esp32"
+        android:textColor="#0E0E0E"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/bList" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

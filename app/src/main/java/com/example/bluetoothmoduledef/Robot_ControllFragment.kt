@@ -41,19 +41,6 @@ class Robot_ControllFragment : Fragment(), BluetoothController.Listener {
            bluetoothController.sendMessage("2")
            binding.startPauseBtn.setBackgroundColor(Color.parseColor("#FFFFFF"))
         }
-//        binding.forwardBtn.setOnClickListener {
-//            bluetoothController.sendMessage("2")
-//        }
-//        binding.leftBtn.setOnClickListener {
-//            bluetoothController.sendMessage("4")
-//        }
-//        binding.rightBtn.setOnClickListener {
-//            bluetoothController.sendMessage("6")
-//        }
-//        binding.backBtn.setOnClickListener {
-//            bluetoothController.sendMessage("8")
-//        }
-
     }
 
     private fun initBtAdapter() {
