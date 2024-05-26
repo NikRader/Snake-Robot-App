@@ -3,19 +3,16 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <application
+        android:screenOrientation="portrait"
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
         android:fullBackupContent="@xml/backup_rules"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
-        android:screenOrientation="portrait"
         android:supportsRtl="true"
         android:theme="@style/Theme.BluetoothModuleDef"
-        tools:ignore="DiscouragedApi"
-        tools:targetApi="31">
-        <activity
-            android:name=".Graphics"
-            android:exported="false" />
+        tools:targetApi="31"
+        tools:ignore="DiscouragedApi">
         <activity
             android:name=".Robot_Controller"
             android:exported="false" />

@@ -7,47 +7,38 @@
     android:background="#000000"
     tools:context=".MainFragment">
 
+    <!-- Ниже кнопки управления -->
     <android.widget.Button
         android:id="@+id/bList"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="280dp"
+        android:layout_marginBottom="24dp"
         android:background="#D14B4B"
         android:backgroundTint="#1CCDBD"
+
         android:text="Список Bluetooth-устройств"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/volts_bat_tv"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
-
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/connect_bt"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintTop_toBottomOf="@+id/connect_bt" />
 
-    <!-- Ниже кнопки управления -->
     <android.widget.Button
         android:id="@+id/connect_bt"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:layout_marginTop="1dp"
+        android:layout_marginBottom="8dp"
         android:background="@color/orange"
         android:backgroundTint="@color/teal_700"
         android:drawableTint="#8E2424"
         android:text="Присоединиться"
         app:iconTint="#3E2424"
+        app:layout_constraintBottom_toTopOf="@+id/bList"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        tools:layout_editor_absoluteY="16dp" />
-
-    <TextView
-        android:id="@+id/tvStatus"
-        android:layout_width="253dp"
-        android:layout_height="50dp"
-        android:background="#E8DCDC"
-        android:gravity="center"
-        android:text=" Здесь появится сообщение от ESP_32!"
-        android:textColor="#090909"
-        android:visibility="gone" />
-
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/delayTime"

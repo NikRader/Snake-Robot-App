@@ -3,7 +3,7 @@ package com.example.bluetoothmoduledef
 import android.bluetooth.BluetoothAdapter
 import android.bluetooth.BluetoothManager
 import android.content.Context
-import android.content.res.ColorStateList
+import android.content.Intent
 import android.graphics.Color
 import android.os.Build
 import android.os.Bundle
@@ -19,10 +19,9 @@ import androidx.navigation.fragment.findNavController
 import com.example.bluetoothmoduledef.databinding.FragmentMainBinding
 import com.example.bt_def.BluetoothConstans
 import com.example.bt_def.bluetooth.BluetoothController
-import java.util.Timer
 
 class MainFragment : Fragment(), BluetoothController.Listener {
-    var timer: Timer? = null
+
     private lateinit var binding: FragmentMainBinding
     private lateinit var bluetoothController: BluetoothController
     private lateinit var btAdapter: BluetoothAdapter
@@ -57,42 +56,37 @@ class MainFragment : Fragment(), BluetoothController.Listener {
         }
 
         binding.StartPosBtn.setOnClickListener {
-            start_pos()
+           start_pos()
         }
         binding.ForwardBtn.setOnClickListener {
-            forward_move()
+           forward_move()
         }
         binding.BackwardBtn.setOnClickListener {
-            backward_move()
+          backward_move()
         }
         binding.LeftBtn.setOnClickListener {
-            left_move()
+           left_move()
         }
         binding.RightBtn.setOnClickListener {
-            right_move()
+          right_move()
         }
 //        binding.PauseBtn.setOnClickListener {
 //
 //        }
     }
-
-    private fun start_pos() {
+    private fun start_pos(){
         bluetoothController.sendMessage("i1")
     }
-
-    private fun forward_move() {
+    private fun forward_move(){
         bluetoothController.sendMessage("f1")
     }
-
-    private fun backward_move() {
+    private fun backward_move(){
         bluetoothController.sendMessage("b1")
     }
-
-    private fun left_move() {
+    private fun left_move(){
         bluetoothController.sendMessage("l1")
     }
-
-    private fun right_move() {
+    private fun right_move(){
         bluetoothController.sendMessage("r1")
     }
 
@@ -113,17 +107,21 @@ class MainFragment : Fragment(), BluetoothController.Listener {
         leftOffsetSb.min = -10
         leftOffsetSb.max = 10
 
+//        startPauseSb.min = 500
+//        startPauseSb.max = 5000
+//
+//        offsetSb.min = 1
+//        offsetSb.max = 10
+
         delayTimeSb.setOnSeekBarChangeListener(object : SeekBar.OnSeekBarChangeListener {
             override fun onProgressChanged(seekBar: SeekBar?, progress: Int, fromUser: Boolean) {
                 delayTimeValue.text = delayTimeSb.progress.toString()
             }
-
             override fun onStartTrackingTouch(seekBar: SeekBar?) {
 
             }
-
             override fun onStopTrackingTouch(seekBar: SeekBar?) {
-                val textD = "D" + delayTimeValue.text.toString()
+                val textD ="D"+ delayTimeValue.text.toString()
                 bluetoothController.sendMessage(textD)
             }
         })
@@ -132,13 +130,11 @@ class MainFragment : Fragment(), BluetoothController.Listener {
             override fun onProgressChanged(seekBar: SeekBar?, progress: Int, fromUser: Boolean) {
                 amplitudeValue.text = amplitudeSb.progress.toString()
             }
-
             override fun onStartTrackingTouch(seekBar: SeekBar?) {
 
             }
-
             override fun onStopTrackingTouch(seekBar: SeekBar?) {
-                val textA = "A" + amplitudeValue.text.toString()
+                val textA ="A"+ amplitudeValue.text.toString()
                 bluetoothController.sendMessage(textA)
             }
         })
@@ -148,13 +144,11 @@ class MainFragment : Fragment(), BluetoothController.Listener {
                 rightOffsetValue.text = rightOffsetSb.progress.toString()
 
             }
-
             override fun onStartTrackingTouch(seekBar: SeekBar?) {
 
             }
-
             override fun onStopTrackingTouch(seekBar: SeekBar?) {
-                val textR = "R" + rightOffsetValue.text.toString()
+                val textR ="R"+ rightOffsetValue.text.toString()
                 bluetoothController.sendMessage(textR)
             }
         })
@@ -164,13 +158,11 @@ class MainFragment : Fragment(), BluetoothController.Listener {
                 leftOffsetValue.text = leftOffsetSb.progress.toString()
 
             }
-
             override fun onStartTrackingTouch(seekBar: SeekBar?) {
 
             }
-
             override fun onStopTrackingTouch(seekBar: SeekBar?) {
-                val textL = "L" + leftOffsetValue.text.toString()
+                val textL ="L"+ leftOffsetValue.text.toString()
                 bluetoothController.sendMessage(textL)
             }
         })
@@ -180,7 +172,6 @@ class MainFragment : Fragment(), BluetoothController.Listener {
         val bManager = activity?.getSystemService(Context.BLUETOOTH_SERVICE) as BluetoothManager
         btAdapter = bManager.adapter
     }
-
 
     // Метод для оповещения о подлючении устройства
     override fun onReceive(message: String) {
@@ -240,4 +231,3 @@ class MainFragment : Fragment(), BluetoothController.Listener {
         }
     }
 }
-

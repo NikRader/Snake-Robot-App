@@ -1,10 +1,10 @@
 package com.example.bt_def.bluetooth
 
 import android.bluetooth.BluetoothAdapter
-
 // Класс для работы с bluetooth-устройством
 class BluetoothController(private val adapter: BluetoothAdapter) {
     private var connectThread: ConnectThread? = null
+    // Функция для подключения к bluetooth-устройству
     fun connect(mac: String, listener: Listener){
         if(adapter.isEnabled&& mac.isNotEmpty()){
             val device = adapter.getRemoteDevice(mac)
@@ -12,12 +12,10 @@ class BluetoothController(private val adapter: BluetoothAdapter) {
             connectThread?.start()
         }
     }
+    // Функция для отправки сообщения
     fun sendMessage(message: String){
         connectThread?.sendMessage(message)
     }
-
-
-
 
     fun closeConnection(){
         connectThread?.closeConnection()

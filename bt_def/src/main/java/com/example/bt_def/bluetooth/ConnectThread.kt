@@ -62,6 +62,8 @@ class ConnectThread(device: BluetoothDevice, val listener: BluetoothController.L
         } catch (e: IOException) {
 
         } catch (se: SecurityException) {
+
+
         }
 
     }

@@ -10,9 +10,7 @@
     <color name="white">#FFFFFFFF</color>
     <color name="blue">#0C68AD</color>
     <color name="red">#F44336</color>
-    <color name="yellow">#DDD160</color>
     <color name="dark_red">#B34038</color>
-    <color name="green_akk">#36B63B</color>
     <color name="green">#146A62</color>
     <color name="green_light">#1CCDBD</color>
 </resources>

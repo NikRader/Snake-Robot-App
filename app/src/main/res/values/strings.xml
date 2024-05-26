@@ -15,20 +15,20 @@
     <string name="hello_blank_fragment">Hello blank fragment</string>
 
     <!-- MainFragment -->
-    <string name="amplitude">амплитуда  </string>
-    <string name="frequency">offset   </string>
-    <string name="rightOffset">сдвиг вправо  </string>
-    <string name="leftOffset">сдвиг влево  </string>
-    <string name="offset">offset  </string>
-    <string name="delayTime">временная задержка  </string>
-    <string name="startPause">startPause  </string>
-    <string name="test">test  </string>
-    <string name="pause">Пауза  </string>
-    <string name="start_position">Исходное положение  </string>
-    <string name="forward">Вперед ↑ </string>
-    <string name="backward">Назад ↓</string>
-    <string name="left">Влево ←</string>
-    <string name="right">Вправо → </string>
+    <string name ="amplitude">амплитуда  </string>
+    <string name ="frequency">offset   </string>
+    <string name ="rightOffset">сдвиг вправо  </string>
+    <string name ="leftOffset">сдвиг влево  </string>
+    <string name ="offset">offset  </string>
+    <string name ="delayTime">временная задержка  </string>
+    <string name ="startPause">startPause  </string>
+    <string name ="test">test  </string>
+    <string name ="pause">Пауза  </string>
+    <string name ="start_position">Исходное положение  </string>
+    <string name ="forward">Вперед ↑ </string>
+    <string name ="backward">Назад ↓</string>
+    <string name ="left">Влево ←</string>
+    <string name ="right">Вправо → </string>
 
 
 </resources>
