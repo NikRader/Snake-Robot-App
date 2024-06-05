@@ -14,7 +14,7 @@
         android:layout_height="wrap_content"
         android:layout_marginBottom="24dp"
         android:background="#D14B4B"
-        android:backgroundTint="#1CCDBD"
+        android:backgroundTint="@color/new_light_green"
 
         android:text="Список Bluetooth-устройств"
         app:layout_constraintBottom_toTopOf="@+id/volts_bat_tv"
@@ -30,7 +30,7 @@
         android:layout_marginTop="1dp"
         android:layout_marginBottom="8dp"
         android:background="@color/orange"
-        android:backgroundTint="@color/teal_700"
+        android:backgroundTint="@color/new_green"
         android:drawableTint="#8E2424"
         android:text="Присоединиться"
         app:iconTint="#3E2424"
@@ -44,9 +44,9 @@
         android:id="@+id/delayTime"
         android:layout_width="116dp"
         android:layout_height="42dp"
-        android:layout_marginTop="346dp"
+        android:layout_marginTop="20dp"
         android:layout_marginBottom="15dp"
-        android:background="@color/green_light"
+        android:background="@color/new_green"
         android:gravity="center"
         android:text="@string/delayTime"
         android:textAlignment="center"
@@ -57,55 +57,55 @@
         app:layout_constraintBottom_toTopOf="@+id/amplitude"
         app:layout_constraintEnd_toEndOf="@+id/amplitude"
         app:layout_constraintStart_toStartOf="@+id/amplitude"
-        app:layout_constraintTop_toBottomOf="@+id/bList" />
+        app:layout_constraintTop_toBottomOf="@+id/BackwardBtn" />
 
     <TextView
         android:id="@+id/rightOffset"
         android:layout_width="116dp"
         android:layout_height="30dp"
-        android:layout_marginBottom="15dp"
-        android:background="@color/green_light"
+        android:layout_marginTop="15dp"
+        android:background="@color/new_green"
         android:gravity="center"
         android:text="@string/rightOffset"
         android:textAlignment="center"
         android:textColor="#101010"
         android:textSize="16sp"
         android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/leftOffset"
         app:layout_constraintEnd_toEndOf="@+id/leftOffset"
-        app:layout_constraintStart_toStartOf="@+id/leftOffset" />
+        app:layout_constraintStart_toStartOf="@+id/leftOffset"
+        app:layout_constraintTop_toBottomOf="@+id/amplitude" />
 
     <TextView
         android:id="@+id/leftOffset"
         android:layout_width="116dp"
         android:layout_height="30dp"
         android:layout_marginStart="16dp"
-        android:layout_marginBottom="64dp"
-        android:background="@color/green_light"
+        android:layout_marginTop="15dp"
+        android:background="@color/new_green"
         android:gravity="center"
         android:text="@string/leftOffset"
         android:textAlignment="center"
         android:textColor="#101010"
         android:textSize="16sp"
         android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/rightOffset" />
 
     <TextView
         android:id="@+id/amplitude"
         android:layout_width="116dp"
         android:layout_height="30dp"
-        android:layout_marginBottom="15dp"
-        android:background="@color/green_light"
+        android:layout_marginTop="15dp"
+        android:background="@color/new_green"
         android:gravity="center"
         android:text="@string/amplitude"
         android:textAlignment="center"
         android:textColor="#101010"
         android:textSize="16sp"
         android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/rightOffset"
         app:layout_constraintEnd_toEndOf="@+id/rightOffset"
-        app:layout_constraintStart_toStartOf="@+id/rightOffset" />
+        app:layout_constraintStart_toStartOf="@+id/rightOffset"
+        app:layout_constraintTop_toBottomOf="@+id/delayTime" />
 
     <SeekBar
         android:id="@+id/delayTimeSb"
@@ -152,7 +152,7 @@
         android:layout_marginStart="20dp"
         android:layout_marginEnd="31dp"
         android:layout_marginBottom="4dp"
-        android:background="@color/green_light"
+        android:background="@color/new_green"
         android:gravity="center"
         android:text="7"
         android:textColor="#090909"
@@ -171,7 +171,7 @@
         android:layout_marginStart="20dp"
         android:layout_marginTop="4dp"
         android:layout_marginEnd="31dp"
-        android:background="@color/green_light"
+        android:background="@color/new_green"
         android:gravity="center"
         android:text="30"
         android:textColor="#090909"
@@ -189,7 +189,7 @@
         android:layout_marginStart="20dp"
         android:layout_marginEnd="31dp"
         android:layout_marginBottom="4dp"
-        android:background="@color/green_light"
+        android:background="@color/new_green"
         android:gravity="center"
         android:text="0"
         android:textColor="#090909"
@@ -206,7 +206,7 @@
         android:layout_marginStart="20dp"
         android:layout_marginEnd="31dp"
         android:layout_marginBottom="4dp"
-        android:background="@color/green_light"
+        android:background="@color/new_green"
         android:gravity="center"
         android:text="0"
         android:textColor="#090909"
@@ -320,6 +320,21 @@
         app:layout_constraintEnd_toEndOf="@+id/volts_bat_tv"
         app:layout_constraintStart_toEndOf="@+id/ForwardBtn"
         app:layout_constraintTop_toBottomOf="@+id/volts_bat_tv" />
+
+    <Button
+        android:id="@+id/to_graph_btn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:layout_marginBottom="25dp"
+        android:backgroundTint="@color/new_light_green"
+        android:text="@string/show_graph"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/leftOffset_sb" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -16,7 +16,7 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="433dp"
         android:layout_height="wrap_content"
-        android:background="#57E1D4">
+        android:background="@color/new_light_yellow">
 
         <TextView
             android:id="@+id/name"

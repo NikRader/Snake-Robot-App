@@ -20,6 +20,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.activity.result.ActivityResultLauncher
 import androidx.activity.result.contract.ActivityResultContracts
+import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.bt_def.databinding.FragmentListBinding
 import com.google.android.material.snackbar.Snackbar
@@ -121,7 +122,8 @@ class DeviceListFragment : Fragment(), ItemAdapter.Listener {
     // Функция для отображения включения bluetooth на Android
     private fun bluetoothState() {
         if (bAdapter?.isEnabled == true) {
-            changeButtonColor(binding.bluetoothBt, Color.GREEN)
+            val color = ContextCompat.getColor(requireContext(), R.color.new_dark_green)
+            changeButtonColor(binding.bluetoothBt, color)
             getPairedDevices()
         }
     }

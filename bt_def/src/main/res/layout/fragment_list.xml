@@ -20,7 +20,7 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:background="@color/teal_700"
+            android:background="@color/new_light_green"
             android:gravity="center_horizontal|center_vertical"
             android:orientation="horizontal">
 
@@ -29,7 +29,7 @@
                 android:layout_width="233dp"
                 android:layout_height="67dp"
                 android:layout_marginRight="1dp"
-                android:background="@color/teal_700"
+                android:background="@color/new_light_green"
                 android:gravity="center_horizontal|center_vertical"
                 android:text="@string/search"
                 android:textColor="#101010"
@@ -69,7 +69,7 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:background="@color/teal_700"
+            android:background="@color/new_light_green"
             android:gravity="center_horizontal|center_vertical"
             android:orientation="horizontal">
 
@@ -78,7 +78,7 @@
                 android:layout_width="232dp"
                 android:layout_height="67dp"
                 android:layout_marginRight="9dp"
-                android:background="@color/teal_700"
+                android:background="@color/new_light_green"
                 android:gravity="center_horizontal|center_vertical"
                 android:text="@string/paired_devices"
                 android:textColor="#101010"

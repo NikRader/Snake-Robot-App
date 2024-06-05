@@ -10,4 +10,9 @@
     <color name="red">#DF0B0B</color>
     <color name="green">#3DCC43</color>
     <color name="orange">#D5481C</color>
+    <color name="new_green">#14E11D</color>
+    <color name="new_dark_green">#07680B</color>
+    <color name="new_light_green">#8CE890</color>
+    <color name="new_light_yellow">#DAE384</color>
+    <color name="green_light">#1CCDBD</color>
 </resources>

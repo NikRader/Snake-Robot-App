@@ -25,6 +25,8 @@ class MainFragment : Fragment(), BluetoothController.Listener {
     private lateinit var binding: FragmentMainBinding
     private lateinit var bluetoothController: BluetoothController
     private lateinit var btAdapter: BluetoothAdapter
+
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -35,59 +37,87 @@ class MainFragment : Fragment(), BluetoothController.Listener {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
+//        Log.d("MyString","Графики")
+//        val list = create_coords(str_t, str_s)
+//        for(i in 0..list.size-1){
+//            println(list[i])
+//        }
         initBtAdapter()
-        binding.delayTimeSb.progress = 4
-        binding.delayTimeValue.text = binding.delayTimeSb.progress.toString()
-        binding.amplitudeSb.progress = 45
-        binding.amplitudeValue.text = binding.amplitudeSb.progress.toString()
         seekbars()
+        set_start_param()
+        start_bluetooth()
+        all_buttons()
+
+    }
+
+    private fun start_bluetooth(){
         val pref = activity?.getSharedPreferences(
             BluetoothConstans.PREFERENCES, Context.MODE_PRIVATE
         )
         val mac = pref?.getString(BluetoothConstans.MAC, "")
         bluetoothController = BluetoothController(btAdapter)
 
-        binding.bList.setOnClickListener {
-            findNavController().navigate(R.id.action_mainFragment_to_deviceListFragment)
-        }
         binding.connectBt.setOnClickListener() {
             bluetoothController.connect(mac ?: "", this)
         }
+    }
+
+    private fun set_start_param(){
+        binding.delayTimeSb.progress = 4
+        binding.delayTimeValue.text = binding.delayTimeSb.progress.toString()
+        binding.amplitudeSb.progress = 45
+        binding.amplitudeValue.text = binding.amplitudeSb.progress.toString()
+    }
+
+    private fun all_buttons(){
+        binding.toGraphBtn.setOnClickListener {
+            findNavController().navigate(R.id.action_mainFragment_to_robot_ControllFragment)
+        }
+
+        binding.bList.setOnClickListener {
+            findNavController().navigate(R.id.action_mainFragment_to_deviceListFragment)
+        }
 
         binding.StartPosBtn.setOnClickListener {
-           start_pos()
+            start_pos()
         }
         binding.ForwardBtn.setOnClickListener {
-           forward_move()
+            forward_move()
         }
         binding.BackwardBtn.setOnClickListener {
-          backward_move()
+            backward_move()
         }
         binding.LeftBtn.setOnClickListener {
-           left_move()
+            left_move()
         }
         binding.RightBtn.setOnClickListener {
-          right_move()
+            right_move()
         }
-//        binding.PauseBtn.setOnClickListener {
-//
-//        }
     }
-    private fun start_pos(){
+
+    private fun start_pos() {
         bluetoothController.sendMessage("i1")
+        println("start_pos")
     }
-    private fun forward_move(){
+
+    private fun forward_move() {
         bluetoothController.sendMessage("f1")
+        println("forward_move")
     }
-    private fun backward_move(){
+
+    private fun backward_move() {
         bluetoothController.sendMessage("b1")
+        println("back_move")
     }
-    private fun left_move(){
+
+    private fun left_move() {
         bluetoothController.sendMessage("l1")
+        println("left_move")
     }
-    private fun right_move(){
+
+    private fun right_move() {
         bluetoothController.sendMessage("r1")
+        println("right_move")
     }
 
     @RequiresApi(Build.VERSION_CODES.O)
@@ -117,11 +147,13 @@ class MainFragment : Fragment(), BluetoothController.Listener {
             override fun onProgressChanged(seekBar: SeekBar?, progress: Int, fromUser: Boolean) {
                 delayTimeValue.text = delayTimeSb.progress.toString()
             }
+
             override fun onStartTrackingTouch(seekBar: SeekBar?) {
 
             }
+
             override fun onStopTrackingTouch(seekBar: SeekBar?) {
-                val textD ="D"+ delayTimeValue.text.toString()
+                val textD = "D" + delayTimeValue.text.toString()
                 bluetoothController.sendMessage(textD)
             }
         })
@@ -130,11 +162,13 @@ class MainFragment : Fragment(), BluetoothController.Listener {
             override fun onProgressChanged(seekBar: SeekBar?, progress: Int, fromUser: Boolean) {
                 amplitudeValue.text = amplitudeSb.progress.toString()
             }
+
             override fun onStartTrackingTouch(seekBar: SeekBar?) {
 
             }
+
             override fun onStopTrackingTouch(seekBar: SeekBar?) {
-                val textA ="A"+ amplitudeValue.text.toString()
+                val textA = "A" + amplitudeValue.text.toString()
                 bluetoothController.sendMessage(textA)
             }
         })
@@ -144,11 +178,13 @@ class MainFragment : Fragment(), BluetoothController.Listener {
                 rightOffsetValue.text = rightOffsetSb.progress.toString()
 
             }
+
             override fun onStartTrackingTouch(seekBar: SeekBar?) {
 
             }
+
             override fun onStopTrackingTouch(seekBar: SeekBar?) {
-                val textR ="R"+ rightOffsetValue.text.toString()
+                val textR = "R" + rightOffsetValue.text.toString()
                 bluetoothController.sendMessage(textR)
             }
         })
@@ -158,11 +194,13 @@ class MainFragment : Fragment(), BluetoothController.Listener {
                 leftOffsetValue.text = leftOffsetSb.progress.toString()
 
             }
+
             override fun onStartTrackingTouch(seekBar: SeekBar?) {
 
             }
+
             override fun onStopTrackingTouch(seekBar: SeekBar?) {
-                val textL ="L"+ leftOffsetValue.text.toString()
+                val textL = "L" + leftOffsetValue.text.toString()
                 bluetoothController.sendMessage(textL)
             }
         })
@@ -197,20 +235,26 @@ class MainFragment : Fragment(), BluetoothController.Listener {
                     if (pattern.containsMatchIn(textBat)) {
                         try {
                             var bat = textBat.toIntOrNull()
-                            if(bat!=null){
+                            if (bat != null) {
                                 Log.d("", "Вольт до: <$bat>")
                                 var volts_old = bat.toFloat()
-                                val  a = 100
-                                var volts= (bat.toDouble()/a.toDouble())
+                                val a = 100
+                                var volts = (bat.toDouble() / a.toDouble())
                                 Log.d("", "Вольт после: <$volts>")
                                 var str_volts = volts.toString()
                                 var str_show = "Напряжение: $str_volts вольт"
                                 binding.voltsShowBtn.text = str_show
                                 var new_bat = (bat - 700) / (100 * 0.014)
                                 val roundedbut = Math.round(new_bat).toInt()
-                                if(roundedbut<20) {binding.voltsBatTv.setTextColor(Color.parseColor("#F44336"))}
-                                if(roundedbut>=20 &&roundedbut<60 ){binding.voltsBatTv.setTextColor(Color.parseColor("#DDD160"))}
-                                if(roundedbut>60 ){binding.voltsBatTv.setTextColor(Color.parseColor("#36B63B"))}
+                                if (roundedbut < 20) {
+                                    binding.voltsBatTv.setTextColor(Color.parseColor("#F44336"))
+                                }
+                                if (roundedbut >= 20 && roundedbut < 60) {
+                                    binding.voltsBatTv.setTextColor(Color.parseColor("#DDD160"))
+                                }
+                                if (roundedbut > 60) {
+                                    binding.voltsBatTv.setTextColor(Color.parseColor("#36B63B"))
+                                }
                                 val str_roundbut = roundedbut.toString()
                                 val my_str = "Заряд аккумулятора: $str_roundbut %"
                                 binding.voltsBatTv.text = my_str
@@ -230,4 +274,6 @@ class MainFragment : Fragment(), BluetoothController.Listener {
             }
         }
     }
+
+
 }

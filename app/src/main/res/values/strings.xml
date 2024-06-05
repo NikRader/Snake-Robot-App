@@ -29,6 +29,7 @@
     <string name ="backward">Назад ↓</string>
     <string name ="left">Влево ←</string>
     <string name ="right">Вправо → </string>
+    <string name ="show_graph">Графики</string>
 
 
 </resources>

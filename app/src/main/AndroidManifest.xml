@@ -13,9 +13,7 @@
         android:theme="@style/Theme.BluetoothModuleDef"
         tools:targetApi="31"
         tools:ignore="DiscouragedApi">
-        <activity
-            android:name=".Robot_Controller"
-            android:exported="false" />
+
         <activity
             android:name=".StartActivity"
             android:exported="true">
