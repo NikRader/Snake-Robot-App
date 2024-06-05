@@ -3,8 +3,9 @@ package com.example.bluetoothmoduledef
 import android.bluetooth.BluetoothAdapter
 import android.bluetooth.BluetoothManager
 import android.content.Context
-import android.content.Intent
 import android.graphics.Color
+import android.graphics.PorterDuff
+import android.graphics.PorterDuffColorFilter
 import android.os.Build
 import android.os.Bundle
 import android.util.Log
@@ -14,11 +15,13 @@ import android.view.ViewGroup
 import android.widget.SeekBar
 import androidx.annotation.RequiresApi
 import androidx.appcompat.content.res.AppCompatResources
+import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import com.example.bluetoothmoduledef.databinding.FragmentMainBinding
 import com.example.bt_def.BluetoothConstans
 import com.example.bt_def.bluetooth.BluetoothController
+
 
 class MainFragment : Fragment(), BluetoothController.Listener {
 
@@ -50,7 +53,7 @@ class MainFragment : Fragment(), BluetoothController.Listener {
 
     }
 
-    private fun start_bluetooth(){
+    private fun start_bluetooth() {
         val pref = activity?.getSharedPreferences(
             BluetoothConstans.PREFERENCES, Context.MODE_PRIVATE
         )
@@ -62,14 +65,14 @@ class MainFragment : Fragment(), BluetoothController.Listener {
         }
     }
 
-    private fun set_start_param(){
+    private fun set_start_param() {
         binding.delayTimeSb.progress = 4
         binding.delayTimeValue.text = binding.delayTimeSb.progress.toString()
         binding.amplitudeSb.progress = 45
         binding.amplitudeValue.text = binding.amplitudeSb.progress.toString()
     }
 
-    private fun all_buttons(){
+    private fun all_buttons() {
         binding.toGraphBtn.setOnClickListener {
             findNavController().navigate(R.id.action_mainFragment_to_robot_ControllFragment)
         }
@@ -123,6 +126,35 @@ class MainFragment : Fragment(), BluetoothController.Listener {
     @RequiresApi(Build.VERSION_CODES.O)
     private fun seekbars() = with(binding) {
 
+
+        // Новый цвет, например, красный
+        val color1 =ContextCompat.getColor(requireContext(), R.color.dark_red)
+        val color2 = ContextCompat.getColor(requireContext(), R.color.dark_red)
+        val color3 = ContextCompat.getColor(requireContext(), R.color.dark_red)
+        val color4 = ContextCompat.getColor(requireContext(), R.color.dark_red)
+// Устанавливаем цвет полосы прогресса Времени
+        delayTimeSb.getProgressDrawable()
+            .setColorFilter(PorterDuffColorFilter(color1, PorterDuff.Mode.SRC_IN))
+// Устанавливаем цвет ползунка
+        delayTimeSb.getThumb().setColorFilter(color1, PorterDuff.Mode.SRC_IN)
+
+        // Устанавливаем цвет полосы прогресса Амплитуды
+        amplitudeSb.getProgressDrawable()
+            .setColorFilter(PorterDuffColorFilter(color2, PorterDuff.Mode.SRC_IN))
+// Устанавливаем цвет ползунка
+        amplitudeSb.getThumb().setColorFilter(color2, PorterDuff.Mode.SRC_IN)
+
+// Устанавливаем цвет полосы прогресса Сдвига вправо
+        rightOffsetSb.getProgressDrawable()
+            .setColorFilter(PorterDuffColorFilter(color3, PorterDuff.Mode.SRC_IN))
+// Устанавливаем цвет ползунка
+        rightOffsetSb.getThumb().setColorFilter(color3, PorterDuff.Mode.SRC_IN)
+
+        // Устанавливаем цвет полосы прогресса Сдвига влево
+        leftOffsetSb.getProgressDrawable()
+            .setColorFilter(PorterDuffColorFilter(color4, PorterDuff.Mode.SRC_IN))
+// Устанавливаем цвет ползунка
+        leftOffsetSb.getThumb().setColorFilter(color4, PorterDuff.Mode.SRC_IN)
         // Границы значений
 
         delayTimeSb.min = 1
