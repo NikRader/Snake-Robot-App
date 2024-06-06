@@ -128,10 +128,10 @@ class MainFragment : Fragment(), BluetoothController.Listener {
 
 
         // Новый цвет, например, красный
-        val color1 =ContextCompat.getColor(requireContext(), R.color.dark_red)
-        val color2 = ContextCompat.getColor(requireContext(), R.color.dark_red)
-        val color3 = ContextCompat.getColor(requireContext(), R.color.dark_red)
-        val color4 = ContextCompat.getColor(requireContext(), R.color.dark_red)
+        val color1 =ContextCompat.getColor(requireContext(), R.color.new_green)
+        val color2 = ContextCompat.getColor(requireContext(), R.color.new_green)
+        val color3 = ContextCompat.getColor(requireContext(), R.color.new_green)
+        val color4 = ContextCompat.getColor(requireContext(), R.color.new_green)
 // Устанавливаем цвет полосы прогресса Времени
         delayTimeSb.getProgressDrawable()
             .setColorFilter(PorterDuffColorFilter(color1, PorterDuff.Mode.SRC_IN))

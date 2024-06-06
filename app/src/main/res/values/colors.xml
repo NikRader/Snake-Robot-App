@@ -9,11 +9,12 @@
     <color name="gray">#C6C2C2</color>
     <color name="white">#FFFFFFFF</color>
     <color name="yellow_litt">#F8EF9F</color>
-    <color name="blue">#0C68AD</color>
+    <color name="blue">#2486D5</color>
+    <color name="blue2">#147DD3</color>
     <color name="red">#F44336</color>
     <color name="dark_red">#B34038</color>
     <color name="green">#146A62</color>
-    <color name="new_green">#58BC5C</color>
+    <color name="new_green">#28ABE6</color>
     <color name="new_light_green">#8CE890</color>
     <color name="green_light">#1CCDBD</color>
 </resources>

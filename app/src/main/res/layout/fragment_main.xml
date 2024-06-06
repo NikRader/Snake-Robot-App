@@ -236,8 +236,8 @@
         android:layout_height="70dp"
         android:layout_marginTop="20dp"
         android:onClick="forward_move"
-        android:rotation="270"
-        android:src="@drawable/left_new"
+        android:rotation="0"
+        android:src="@drawable/back_blue2"
         app:layout_constraintEnd_toEndOf="@+id/StartPosBtn"
         app:layout_constraintStart_toStartOf="@+id/StartPosBtn"
         app:layout_constraintTop_toBottomOf="@+id/volts_bat_tv" />
@@ -248,7 +248,8 @@
         android:layout_height="70dp"
         android:layout_marginEnd="60dp"
         android:onClick="right_move"
-        android:src="@drawable/left_new"
+        android:rotation="90"
+        android:src="@drawable/back_blue2"
         app:layout_constraintBottom_toBottomOf="@+id/StartPosBtn"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="@+id/StartPosBtn" />
@@ -259,8 +260,8 @@
         android:layout_height="70dp"
         android:layout_marginBottom="300dp"
         android:onClick="backward_move"
-        android:rotation="90"
-        android:src="@drawable/left_new"
+        android:rotation="180"
+        android:src="@drawable/back_blue2"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="@+id/StartPosBtn"
         app:layout_constraintStart_toStartOf="@+id/StartPosBtn" />
@@ -271,8 +272,8 @@
         android:layout_height="70dp"
         android:layout_marginStart="60dp"
         android:onClick="left_move"
-        android:rotation="180"
-        android:src="@drawable/left_new"
+        android:rotation="270"
+        android:src="@drawable/back_blue2"
         app:layout_constraintBottom_toBottomOf="@+id/StartPosBtn"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/StartPosBtn" />
