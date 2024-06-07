@@ -21,14 +21,18 @@ import androidx.navigation.fragment.findNavController
 import com.example.bluetoothmoduledef.databinding.FragmentMainBinding
 import com.example.bt_def.BluetoothConstans
 import com.example.bt_def.bluetooth.BluetoothController
+import com.github.mikephil.charting.data.Entry
 
 
 class MainFragment : Fragment(), BluetoothController.Listener {
 
+
     private lateinit var binding: FragmentMainBinding
     private lateinit var bluetoothController: BluetoothController
     private lateinit var btAdapter: BluetoothAdapter
-
+    var stringList: MutableList<String> = mutableListOf()
+    var big_string = String()
+    var str_count = 0
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -40,16 +44,14 @@ class MainFragment : Fragment(), BluetoothController.Listener {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-//        Log.d("MyString","Графики")
-//        val list = create_coords(str_t, str_s)
-//        for(i in 0..list.size-1){
-//            println(list[i])
-//        }
+
+
         initBtAdapter()
         seekbars()
         set_start_param()
         start_bluetooth()
         all_buttons()
+
 
     }
 
@@ -74,7 +76,11 @@ class MainFragment : Fragment(), BluetoothController.Listener {
 
     private fun all_buttons() {
         binding.toGraphBtn.setOnClickListener {
-            findNavController().navigate(R.id.action_mainFragment_to_robot_ControllFragment)
+            str_count = 0
+            val bundle = Bundle()
+
+            bundle.putString("MyArg", big_string)
+            findNavController().navigate(R.id.action_mainFragment_to_robot_ControllFragment, bundle)
         }
 
         binding.bList.setOnClickListener {
@@ -128,7 +134,7 @@ class MainFragment : Fragment(), BluetoothController.Listener {
 
 
         // Новый цвет, например, красный
-        val color1 =ContextCompat.getColor(requireContext(), R.color.new_green)
+        val color1 = ContextCompat.getColor(requireContext(), R.color.new_green)
         val color2 = ContextCompat.getColor(requireContext(), R.color.new_green)
         val color3 = ContextCompat.getColor(requireContext(), R.color.new_green)
         val color4 = ContextCompat.getColor(requireContext(), R.color.new_green)
@@ -168,12 +174,6 @@ class MainFragment : Fragment(), BluetoothController.Listener {
 
         leftOffsetSb.min = -10
         leftOffsetSb.max = 10
-
-//        startPauseSb.min = 500
-//        startPauseSb.max = 5000
-//
-//        offsetSb.min = 1
-//        offsetSb.max = 10
 
         delayTimeSb.setOnSeekBarChangeListener(object : SeekBar.OnSeekBarChangeListener {
             override fun onProgressChanged(seekBar: SeekBar?, progress: Int, fromUser: Boolean) {
@@ -243,6 +243,54 @@ class MainFragment : Fragment(), BluetoothController.Listener {
         btAdapter = bManager.adapter
     }
 
+    private fun volts_and_battery(message: String) {
+        var textBat = message
+        // Регулярное выражение для поиска целых чисел
+        val pattern = Regex("\\d")
+
+        if (pattern.containsMatchIn(textBat)) {
+            try {
+                var bat = textBat.toIntOrNull()
+                if (bat != null) {
+                    Log.d("", "Вольт до: <$bat>")
+                    var volts_old = bat.toFloat()
+                    val a = 100
+                    var volts = (bat.toDouble() / a.toDouble())
+                    Log.d("", "Вольт после: <$volts>")
+                    var str_volts = volts.toString()
+                    var str_show = "Напряжение: $str_volts вольт"
+                    binding.voltsShowBtn.text = str_show
+                    var new_bat = (bat - 700) / (100 * 0.014)
+                    val roundedbut = Math.round(new_bat).toInt()
+                    if (roundedbut < 0) {
+                        binding.voltsBatTv.text = "Заряд аккумулятора: 0%"
+                    }
+                    if (roundedbut < 20) {
+                        binding.voltsBatTv.setTextColor(Color.parseColor("#F44336"))
+                    }
+                    if (roundedbut >= 20 && roundedbut < 60) {
+                        binding.voltsBatTv.setTextColor(Color.parseColor("#DDD160"))
+                    }
+                    if (roundedbut > 60) {
+                        binding.voltsBatTv.setTextColor(Color.parseColor("#36B63B"))
+                    }
+                    val str_roundbut = roundedbut.toString()
+                    val my_str = "Заряд аккумулятора: $str_roundbut %"
+                    binding.voltsBatTv.text = my_str
+                    Log.d("", "Заряд аккумулятора: <$str_roundbut>%")
+                }
+
+            } catch (e: NumberFormatException) {
+                println("Произошла ошибка: ${e.message}")
+                // Обработка ошибки, например, уведомление пользователя
+            }
+        }
+    }
+    // Проверка строки на пробелы
+    fun checkForSpaces(inputString: String): Boolean {
+        return inputString.none { it == ' ' }
+    }
+
     // Метод для оповещения о подлючении устройства
     override fun onReceive(message: String) {
         activity?.runOnUiThread {
@@ -260,52 +308,29 @@ class MainFragment : Fragment(), BluetoothController.Listener {
                 }
 
                 else -> {
-                    var textBat = message
-                    // Регулярное выражение для поиска целых чисел
-                    val pattern = Regex("\\d")
 
-                    if (pattern.containsMatchIn(textBat)) {
-                        try {
-                            var bat = textBat.toIntOrNull()
-                            if (bat != null) {
-                                Log.d("", "Вольт до: <$bat>")
-                                var volts_old = bat.toFloat()
-                                val a = 100
-                                var volts = (bat.toDouble() / a.toDouble())
-                                Log.d("", "Вольт после: <$volts>")
-                                var str_volts = volts.toString()
-                                var str_show = "Напряжение: $str_volts вольт"
-                                binding.voltsShowBtn.text = str_show
-                                var new_bat = (bat - 700) / (100 * 0.014)
-                                val roundedbut = Math.round(new_bat).toInt()
-                                if (roundedbut < 20) {
-                                    binding.voltsBatTv.setTextColor(Color.parseColor("#F44336"))
-                                }
-                                if (roundedbut >= 20 && roundedbut < 60) {
-                                    binding.voltsBatTv.setTextColor(Color.parseColor("#DDD160"))
-                                }
-                                if (roundedbut > 60) {
-                                    binding.voltsBatTv.setTextColor(Color.parseColor("#36B63B"))
-                                }
-                                val str_roundbut = roundedbut.toString()
-                                val my_str = "Заряд аккумулятора: $str_roundbut %"
-                                binding.voltsBatTv.text = my_str
-                                Log.d("", "Заряд аккумулятора: <$str_roundbut>%")
+                    if (message.isNotEmpty()) {
+                           val a = message[0]
+                        val share = 'A'
+                        if(a=='I' ){
+                          val new_message =  message+share
+                            big_string+=new_message
+                           // println(new_message)
+
+                            str_count++
+                            if(str_count>200){
+                                binding.toGraphBtn.setBackgroundColor(ContextCompat.getColor(requireContext(), R.color.green))
+                                binding.toGraphBtn.isEnabled = true
+
                             }
-
-
-                        } catch (e: NumberFormatException) {
-                            println("Произошла ошибка: ${e.message}")
-                            // Обработка ошибки, например, уведомление пользователя
                         }
 
-                    } else {
-                        Log.d("", "Строка не содержит целых чисел")
+                          volts_and_battery(message)
                     }
                 }
             }
         }
     }
-
-
 }
+
+
