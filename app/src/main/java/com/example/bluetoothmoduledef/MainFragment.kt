@@ -25,8 +25,6 @@ import com.github.mikephil.charting.data.Entry
 
 
 class MainFragment : Fragment(), BluetoothController.Listener {
-
-
     private lateinit var binding: FragmentMainBinding
     private lateinit var bluetoothController: BluetoothController
     private lateinit var btAdapter: BluetoothAdapter
@@ -286,6 +284,7 @@ class MainFragment : Fragment(), BluetoothController.Listener {
             }
         }
     }
+
     // Проверка строки на пробелы
     fun checkForSpaces(inputString: String): Boolean {
         return inputString.none { it == ' ' }
@@ -310,22 +309,27 @@ class MainFragment : Fragment(), BluetoothController.Listener {
                 else -> {
 
                     if (message.isNotEmpty()) {
-                           val a = message[0]
+                        val a = message[0]
                         val share = 'A'
-                        if(a=='I' ){
-                          val new_message =  message+share
-                            big_string+=new_message
-                           // println(new_message)
+                        if (a == 'I') {
+                            val new_message = message + share
+                            big_string += new_message
+                            // println(new_message)
 
                             str_count++
-                            if(str_count>200){
-                                binding.toGraphBtn.setBackgroundColor(ContextCompat.getColor(requireContext(), R.color.green))
+                            if (str_count > 200) {
+                                binding.toGraphBtn.setBackgroundColor(
+                                    ContextCompat.getColor(
+                                        requireContext(),
+                                        R.color.green
+                                    )
+                                )
                                 binding.toGraphBtn.isEnabled = true
 
                             }
                         }
 
-                          volts_and_battery(message)
+                        volts_and_battery(message)
                     }
                 }
             }
