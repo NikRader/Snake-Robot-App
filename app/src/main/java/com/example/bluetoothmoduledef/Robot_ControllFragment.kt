@@ -1,6 +1,7 @@
 package com.example.bluetoothmoduledef
 
 
+import android.content.Intent
 import android.graphics.Color
 import android.os.Bundle
 import android.util.Log
@@ -18,9 +19,32 @@ import com.github.mikephil.charting.data.LineDataSet
 import com.github.mikephil.charting.data.Entry
 
 class Robot_ControllFragment : Fragment(), BluetoothController.Listener {
+class Servo{
+    fun set_move():Int{
+       val res = 0
+        return res
+    }
+    fun set_time():Int{
+        val cur_t = 0
+        return cur_t
+    }
+}
 
     private lateinit var binding: FragmentRobotControllBinding
     private lateinit var lineChart: LineChart
+    // Константы и переменные
+    var direct_gr = 0
+    var delayTime_gr = 4
+    var amplitude_gr = 45
+    var rightOffset_gr = 0
+    var leftOffset_gr = 0
+
+    val offset = 6
+    val frequency = 1
+    val  lag = .5712
+    var counter = 0
+
+
 
     var graph1: MutableList<Entry> = mutableListOf()
     var graph2: MutableList<Entry> = mutableListOf()
@@ -198,5 +222,9 @@ class Robot_ControllFragment : Fragment(), BluetoothController.Listener {
 
     private fun XAxis.setAxisTitleText(s: String) {
 
+    }
+
+    companion object {
+        const val numServos = 10
     }
 }

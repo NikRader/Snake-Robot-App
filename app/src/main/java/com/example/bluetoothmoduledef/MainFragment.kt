@@ -32,6 +32,13 @@ class MainFragment : Fragment(), BluetoothController.Listener {
     var big_string = String()
     var str_count = 0
 
+    // Константы и переменные
+    var direct = 0
+    var delayTime = 4
+    var amplitude = 45
+    var rightOffset = 0
+    var leftOffset = 0
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -73,13 +80,6 @@ class MainFragment : Fragment(), BluetoothController.Listener {
     }
 
     private fun all_buttons() {
-        binding.toGraphBtn.setOnClickListener {
-            str_count = 0
-            val bundle = Bundle()
-
-            bundle.putString("MyArg", big_string)
-            findNavController().navigate(R.id.action_mainFragment_to_robot_ControllFragment, bundle)
-        }
 
         binding.bList.setOnClickListener {
             findNavController().navigate(R.id.action_mainFragment_to_deviceListFragment)
@@ -309,26 +309,6 @@ class MainFragment : Fragment(), BluetoothController.Listener {
                 else -> {
 
                     if (message.isNotEmpty()) {
-                        val a = message[0]
-                        val share = 'A'
-                        if (a == 'I') {
-                            val new_message = message + share
-                            big_string += new_message
-                            // println(new_message)
-
-                            str_count++
-                            if (str_count > 200) {
-                                binding.toGraphBtn.setBackgroundColor(
-                                    ContextCompat.getColor(
-                                        requireContext(),
-                                        R.color.green
-                                    )
-                                )
-                                binding.toGraphBtn.isEnabled = true
-
-                            }
-                        }
-
                         volts_and_battery(message)
                     }
                 }
