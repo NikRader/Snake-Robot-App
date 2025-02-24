@@ -1,5 +1,7 @@
 
 
+# Watch Video of moving my snake-robot in real life!
+https://github.com/user-attachments/assets/f085a8a5-99b8-442a-9945-7a55f7c81c35
 # Snake-Robot - is project with Client-Server Architecture for Managing of Robot-Snake in Real Life! It consist of two parts:
 
 
@@ -21,8 +23,8 @@
      
    ![1](https://github.com/user-attachments/assets/dc746f46-e0f0-4575-a231-a8a6570ba678)
      
-# Watch Video of moving snake-robot in real life!
-https://github.com/user-attachments/assets/cb8adc5c-7f82-497b-add8-6dc77ec83653
+
+
 
 # Link for arduino sketches:
 
