@@ -21,10 +21,9 @@
      
    ![1](https://github.com/user-attachments/assets/dc746f46-e0f0-4575-a231-a8a6570ba678)
      
-# Video for watching of snake-robot in real life!
-
-
+# Watch Video of moving snake-robot in real life!
+https://github.com/user-attachments/assets/cb8adc5c-7f82-497b-add8-6dc77ec83653
 
 # Link for arduino sketches:
 
-https://github.com/NikRader/Arduino-Scetches
+ [https://github.com/NikRader/Arduino-Scetches]()
